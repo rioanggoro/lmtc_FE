@@ -9,7 +9,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <nav>
-          <Link href="/">Home</Link> | <Link href="/user/login">Login</Link> |{" "}
+          <Link href="/">Home</Link> | <Link href="/login">Login</Link> |{" "}
           <Link href="/user/register">Register</Link>
         </nav>
         {children}
