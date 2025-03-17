@@ -18,26 +18,99 @@ body {
     rgb(var(--background-start-rgb));
 }
 
-/* Line animation */
+/* Line animations */
 .line-animation {
-  display: inline-block;
-  position: relative;
-  width: 0;
-  height: 3px;
-  background-color: #0ea5e9;
-  margin-left: 8px;
-  vertical-align: middle;
-  animation: expandLine 1.5s ease-in-out infinite;
+  position: absolute;
+  width: 8px;
+  background-color: white;
+  opacity: 0.2;
+  border-radius: 10px;
 }
 
-@keyframes expandLine {
+.line-animation:nth-child(1) {
+  left: 130px;
+  animation: lineAnimation 3s infinite;
+  animation-delay: 0s;
+}
+
+.line-animation:nth-child(2) {
+  left: 28%;
+  animation: lineAnimation 3s infinite;
+  animation-delay: 1s;
+}
+
+.line-animation:nth-child(3) {
+  left: 42%;
+  animation: lineAnimation 3s infinite;
+  animation-delay: 2s;
+}
+
+.line-animation:nth-child(4) {
+  left: 56%;
+  animation: lineAnimation 3s infinite;
+  animation-delay: 3s;
+}
+
+.line-animation:nth-child(5) {
+  left: 70%;
+  animation: lineAnimation 3s infinite;
+  animation-delay: 4s;
+}
+
+.line-animation:nth-child(6) {
+  left: 84%;
+  animation: lineAnimation 3s infinite;
+  animation-delay: 5s;
+}
+
+.line-animation:nth-child(7) {
+  left: 98%;
+  animation: lineAnimation 3s infinite;
+  animation-delay: 6s;
+}
+
+@keyframes lineAnimation {
   0% {
-    width: 0;
+    height: 0%;
+    top: 0%;
+  }
+  25% {
+    height: 100%;
+    top: 0%;
   }
   50% {
-    width: 50px;
+    height: 100%;
+    top: 50%;
+  }
+  75% {
+    height: 100%;
+    top: 75%;
   }
   100% {
-    width: 0;
+    height: 0%;
+    top: 100%;
+  }
+}
+
+/* Form field styles */
+.form-field__input:focus {
+  border-color: #0ea5e9;
+  box-shadow: 0 0 0 2px rgba(14, 165, 233, 0.2);
+}
+
+.login__box {
+  display: flex;
+  flex-direction: column;
+}
+
+.login__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .login__box--image {
+    display: none;
   }
 }
