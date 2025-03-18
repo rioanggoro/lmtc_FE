@@ -33,7 +33,7 @@ export default function LoginForm() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Enter Email"
-          className="w-full rounded-md border border-gray-200 p-3 shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-400"
+          className="w-full rounded-[8px] border border-gray-200 p-3 shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-400"
           required
         />
       </div>

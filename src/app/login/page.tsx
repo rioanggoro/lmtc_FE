@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import LoginForm from "../components/login-form";
 import LoginBox from "../components/login-box";
+import FooterAuth from "../components/footer-auth";
 
 export default function Home() {
   const currentYear = new Date().getFullYear();
@@ -30,23 +31,7 @@ export default function Home() {
 
             <LoginForm />
           </div>
-
-          <div className="login__question mt-8 text-center text-sm text-gray-600">
-            If you have any questions, contact us at{" "}
-            <a
-              className="login__email text-blue-500"
-              href="mailto:support@lmctplus.com"
-            >
-              support@lmctplus.com
-            </a>{" "}
-            or call at{" "}
-            <a
-              className="login__phone text-blue-500"
-              href="tel:+61 1300 683 688"
-            >
-              +61 1300 683 688
-            </a>
-          </div>
+          <FooterAuth />
         </section>
 
         <footer className="login__footer flex items-center justify-between px-8 py-4 text-sm text-gray-500">
