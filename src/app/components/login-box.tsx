@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function LoginBox() {
   return (
@@ -13,16 +16,22 @@ export default function LoginBox() {
         <span className="line-animation"></span>
       </div>
 
-      <div className="relative z-10 flex h-full items-center justify-center">
+      {/* Image dengan animasi scaling & rotation */}
+      <motion.div
+        className="relative z-10 flex h-full items-center justify-center"
+        initial={{ scale: 0, rotate: 45 }}
+        animate={{ scale: [0, 1], rotate: [45, 0] }}
+        transition={{ duration: 1, ease: [0.6, 0.05, -0.01, 0.9] }}
+      >
         <Image
           className="login__img"
           src="/img/lmctm.png"
           alt="Safe"
-          width={400}
-          height={400}
+          width={340}
+          height={340}
           priority
         />
-      </div>
+      </motion.div>
     </div>
   );
 }
