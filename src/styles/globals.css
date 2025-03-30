@@ -18,76 +18,82 @@ body {
     rgb(var(--background-start-rgb));
 }
 
-/* Line animations */
+/* Enhanced Line animations */
 .line-animation {
   position: absolute;
   width: 8px;
   background-color: white;
   opacity: 0.2;
   border-radius: 10px;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
 }
 
 .line-animation:nth-child(1) {
   left: 130px;
-  animation: lineAnimationLinear 3s infinite linear;
+  height: 180px;
+  animation: lineAnimationEnhanced 1.5s infinite linear; /* Ubah dari 4s menjadi 2.5s */
   animation-delay: 0s;
 }
 
 .line-animation:nth-child(2) {
   left: 28%;
-  animation: lineAnimationLinear 3s infinite linear;
-  animation-delay: 0.5s;
+  height: 220px;
+  animation: lineAnimationEnhanced 1.5s infinite linear;
+  animation-delay: 0.7s;
 }
 
 .line-animation:nth-child(3) {
   left: 42%;
-  animation: lineAnimationLinear 3s infinite linear;
-  animation-delay: 1s;
+  height: 160px;
+  animation: lineAnimationEnhanced 1.3s infinite linear; /* Ubah dari 3.8s menjadi 2.8s */
+  animation-delay: 1.4s;
 }
 
 .line-animation:nth-child(4) {
   left: 56%;
-  animation: lineAnimationLinear 3s infinite linear;
-  animation-delay: 1.5s;
+  height: 200px;
+  animation: lineAnimationEnhanced 1.7s infinite linear; /* Ubah dari 4.2s menjadi 3.2s */
+  animation-delay: 2.1s;
 }
 
 .line-animation:nth-child(5) {
   left: 70%;
-  animation: lineAnimationLinear 3s infinite linear;
-  animation-delay: 2s;
+  height: 190px;
+  animation: lineAnimationEnhanced 1.2s infinite linear; /* Ubah dari 3.9s menjadi 2.9s */
+  animation-delay: 2.8s;
 }
 
 .line-animation:nth-child(6) {
   left: 84%;
-  animation: lineAnimationLinear 3s infinite linear;
-  animation-delay: 2.5s;
+  height: 230px;
+  animation: lineAnimationEnhanced 1.6s infinite linear; /* Ubah dari 4.3s menjadi 3.1s */
+  animation-delay: 3.5s;
 }
 
 .line-animation:nth-child(7) {
   left: 98%;
-  animation: lineAnimationLinear 3s infinite linear;
-  animation-delay: 3s;
+  height: 170px;
+  animation: lineAnimationEnhanced 1.9s infinite linear; /* Ubah dari 4.1s menjadi 3.4s */
+  animation-delay: 4.2s;
 }
 
-@keyframes lineAnimationLinear {
+@keyframes lineAnimationEnhanced {
   0% {
-    height: 0;
-    top: 0;
+    transform: translateY(-100%);
+    opacity: 0;
   }
-  15% {
-    height: 100px;
-    top: 0;
+  10% {
+    opacity: 0.2;
   }
-  85% {
-    height: 100px;
-    top: calc(100% - 100px);
+  90% {
+    height: 50px;
+    opacity: 0.2;
   }
   100% {
-    height: 0;
-    top: 100%;
+    transform: translateY(100vh);
+    opacity: 0;
   }
 }
-
 /* Form field styles */
 .form-field__input:focus {
   border-color: #0ea5e9;

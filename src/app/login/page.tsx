@@ -22,13 +22,7 @@ export default function Home() {
 
         <section className="login__content flex flex-1 flex-col px-8 py-4">
           <div className="login__form mx-auto w-full max-w-md">
-            <h1 className="login__title mb-2 text-center text-2xl font-bold text-gray-800">
-              Welcome to LMCT+!
-            </h1>
-            <p className="mb-8 text-center text-lg text-gray-600">
-              LMCT Plus is Australia&apos;s Biggest &amp; Best Rewards Club!
-            </p>
-
+            <FooterAuth />
             <LoginForm />
           </div>
           <FooterAuth />
