@@ -1,19 +1,13 @@
 import Link from "next/link";
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function HomePage() {
   return (
-    <html lang="en">
-      <body>
-        <nav>
-          <Link href="/">Home</Link> | <Link href="/login">Login</Link> |{" "}
-          <Link href="/user/register">Register</Link>
-        </nav>
-        {children}
-      </body>
-    </html>
+    <main>
+      <nav>
+        <Link href="/">Home</Link> | <Link href="/login">Login</Link> |{" "}
+        <Link href="/user/register">Register</Link>
+      </nav>
+      <h1>Welcome to My App</h1>
+    </main>
   );
 }
