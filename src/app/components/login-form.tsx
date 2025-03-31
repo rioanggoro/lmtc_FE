@@ -77,7 +77,7 @@ export default function LoginForm() {
 
       <button
         type="submit"
-        className="w-full rounded-md bg-sky-500 px-4 py-3 font-medium text-white transition-colors duration-300 hover:bg-sky-600"
+        className="bg-primary-color w-full rounded-md px-4 py-3 font-medium text-white transition-colors duration-300 hover:bg-orange-600"
       >
         Log In
       </button>
@@ -85,7 +85,7 @@ export default function LoginForm() {
       <div className="mt-4 text-center">
         <Link
           href="/forgot-password"
-          className="text-sm text-sky-500 hover:text-sky-600"
+          className="text-secondary-color text-sm hover:text-orange-800"
         >
           Forgot your password?
         </Link>
@@ -93,7 +93,7 @@ export default function LoginForm() {
 
       <div className="mt-6 text-center text-gray-600">
         Do not have an account?{" "}
-        <Link href="/signup" className="text-sky-500 hover:text-sky-600">
+        <Link href="/signup" className="text-orange-600 hover:text-orange-800">
           Sign Up
         </Link>
       </div>

@@ -5,7 +5,7 @@ export default function HomePage() {
     <main>
       <nav>
         <Link href="/">Home</Link> | <Link href="/login">Login</Link> |{" "}
-        <Link href="/user/register">Register</Link>
+        <Link href="/register">Register</Link>
       </nav>
       <h1>Welcome to My App</h1>
     </main>

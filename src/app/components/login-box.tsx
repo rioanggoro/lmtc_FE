@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 export default function LoginBox() {
   return (
-    <div className="login__box login__box--image relative hidden overflow-hidden bg-[radial-gradient(50%_50%_at_50%_50%,_#fff_0%,_#54bfff_90%)] md:block md:w-1/2">
+    <div className="login__box login__box--image relative hidden overflow-hidden bg-[radial-gradient(50%_50%_at_50%_50%,_#fff_0%,_#f57a31_90%)] md:block md:w-1/2">
       <div className="absolute inset-0">
         <span className="line-animation"></span>
         <span className="line-animation"></span>

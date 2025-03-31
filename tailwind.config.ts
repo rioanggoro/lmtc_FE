@@ -8,6 +8,10 @@ export default {
       fontFamily: {
         sans: ["var(--font-geist-sans)", ...fontFamily.sans],
       },
+      colors: {
+        "primary-color": "#f57a31",
+        "secondary-color": "#464343",
+      },
     },
   },
   plugins: [],
