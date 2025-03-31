@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-import LoginForm from "../components/login-form";
-import LoginBox from "../components/login-box";
-import FooterAuth from "../components/footer-auth";
+import LoginForm from "../components/login/login-form";
+import LoginBox from "../components/login/login-box";
+import FooterAuth from "../components/login/footer-auth";
 
 export default function Home() {
   const currentYear = new Date().getFullYear();
