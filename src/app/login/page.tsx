@@ -13,7 +13,7 @@ export default function Home() {
         <header className="login__header p-6">
           <Image
             className="login__logo-img"
-            src="/img/LMCT-logo.svg"
+            src="/img/hopkins_img.png"
             alt="LMCT+"
             width={120}
             height={40}
