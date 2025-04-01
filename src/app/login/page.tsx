@@ -34,7 +34,8 @@ export default function Home() {
             </h1>
 
             <p className="mb-8 text-center text-lg text-gray-600">
-              LMCT Plus is Australia&apos;s Biggest &amp; Best Rewards Club!
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Est,
+              iusto.
             </p>
 
             <LoginForm />
