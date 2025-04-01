@@ -33,7 +33,7 @@ export default function LoginForm() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Enter Email"
-          className="w-full rounded-[8px] border border-gray-200 p-3 shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-400"
+          className="w-full rounded-[8px] border border-gray-200 p-3 shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-400"
           required
         />
       </div>
@@ -49,7 +49,7 @@ export default function LoginForm() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder="Enter password"
-            className="w-full rounded-md border border-gray-200 p-3 pr-10 shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-400"
+            className="w-full rounded-md border border-gray-200 p-3 pr-10 shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-400"
             required
           />
           <button
@@ -77,7 +77,7 @@ export default function LoginForm() {
 
       <button
         type="submit"
-        className="bg-primary-color w-full rounded-md px-4 py-3 font-medium text-white transition-colors duration-300 hover:bg-orange-600"
+        className="w-full rounded-md bg-primary-color px-4 py-3 font-medium text-white transition-colors duration-300 hover:bg-orange-600"
       >
         Log In
       </button>
@@ -85,7 +85,7 @@ export default function LoginForm() {
       <div className="mt-4 text-center">
         <Link
           href="/forgot"
-          className="text-secondary-color text-sm hover:text-orange-800"
+          className="text-sm text-secondary-color hover:text-orange-800"
         >
           Forgot your password?
         </Link>
