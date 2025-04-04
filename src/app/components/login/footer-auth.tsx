@@ -4,9 +4,9 @@ export default function FooterAuth() {
       If you have any questions, contact us at{" "}
       <a
         className="login__email text-orange-500"
-        href="mailto:support@lmctplus.com"
+        href="mailto:support@hopkins.com"
       >
-        support@lmctplus.com
+        support@hopkins.com
       </a>{" "}
       or call at{" "}
       <a className="login__phone text-orange-500" href="tel:+61 1300 683 688">

@@ -44,7 +44,7 @@ export default function Home() {
         </section>
 
         <footer className="login__footer flex items-center justify-between px-8 py-4 text-sm text-gray-500">
-          <div className="login__footer-name">© {currentYear} LMCT+</div>
+          <div className="login__footer-name">© {currentYear} Hopkins.</div>
 
           <div className="login__footer-privacy flex items-center">
             <Link

@@ -53,7 +53,7 @@ export default function ResetPassword() {
               id="email"
               type="email"
               placeholder="Enter Email"
-              className="w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -62,7 +62,7 @@ export default function ResetPassword() {
 
           <button
             type="submit"
-            className="w-full rounded-md bg-blue-600 py-2 text-white transition-colors hover:bg-blue-700"
+            className="w-full rounded-md bg-orange-600 py-2 text-white transition-colors hover:bg-orange-700"
           >
             Submit
           </button>
@@ -70,7 +70,7 @@ export default function ResetPassword() {
           <div className="mt-6 text-center">
             <a
               href="/login"
-              className="inline-flex items-center text-gray-600 hover:text-blue-600"
+              className="inline-flex items-center text-gray-600 hover:text-orange-600"
             >
               <LogOut className="mr-1 h-4 w-4" /> Login
             </a>
@@ -79,31 +79,7 @@ export default function ResetPassword() {
       </div>
 
       {/* Footer */}
-      <div className="mt-8 text-sm text-gray-500">© 2025 LMCT+</div>
+      <div className="mt-8 text-sm text-gray-500">© 2025 Hopkins.</div>
     </div>
   );
 }
-
-// function SteeringWheelIcon() {
-//   return (
-//     <svg
-//       xmlns="http://www.w3.org/2000/svg"
-//       width="24"
-//       height="24"
-//       viewBox="0 0 24 24"
-//       fill="none"
-//       stroke="currentColor"
-//       strokeWidth="2"
-//       strokeLinecap="round"
-//       strokeLinejoin="round"
-//       className="text-blue-600"
-//     >
-//       <circle cx="12" cy="12" r="8" />
-//       <circle cx="12" cy="12" r="3" />
-//       <line x1="12" y1="4" x2="12" y2="9" />
-//       <line x1="12" y1="15" x2="12" y2="20" />
-//       <line x1="4" y1="12" x2="9" y2="12" />
-//       <line x1="15" y1="12" x2="20" y2="12" />
-//     </svg>
-//   );
-// }
