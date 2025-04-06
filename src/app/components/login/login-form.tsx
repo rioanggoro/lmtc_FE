@@ -1,15 +1,17 @@
 "use client";
 
 import type React from "react";
-
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { Eye, EyeOff } from "lucide-react";
 
 export default function LoginForm() {
+  const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -17,9 +19,18 @@ export default function LoginForm() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle login logic here
-    console.log("Login attempt with:", { email, password });
+
+    // Simulasi login sederhana
+    if (email === "user@user.com" && password === "user123") {
+      router.push("/user"); // Halaman user
+    } else if (email === "admin@admin.com" && password === "admi123") {
+      router.push("/admin"); // Halaman admin
+    } else {
+      setError("Invalid email or password");
+    }
   };
+
+  const [isCaptchaChecked, setIsCaptchaChecked] = useState(false);
 
   return (
     <form onSubmit={handleSubmit} className="w-full">
@@ -67,13 +78,20 @@ export default function LoginForm() {
           Captcha: <span className="text-red-500">*</span>
         </label>
         <div className="rounded-md border border-gray-200 bg-gray-50 p-3">
-          {/* This is a placeholder for the reCAPTCHA */}
-          <div className="flex items-center">
-            <div className="mr-2 h-5 w-5 rounded border border-gray-400"></div>
+          <label className="flex cursor-pointer items-center space-x-2">
+            <input
+              type="checkbox"
+              checked={isCaptchaChecked}
+              onChange={() => setIsCaptchaChecked(!isCaptchaChecked)}
+              className="h-5 w-5 accent-orange-500"
+              required
+            />
             <span className="text-sm text-gray-600">I&apos;m not a robot</span>
-          </div>
+          </label>
         </div>
       </div>
+
+      {error && <p className="mb-4 text-sm text-red-500">{error}</p>}
 
       <button
         type="submit"
