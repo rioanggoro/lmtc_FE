@@ -56,35 +56,48 @@ export default function Header() {
           <nav className="hidden items-center space-x-8 md:flex">
             <Link
               href="/membership"
-              className="text-white transition hover:text-orange-200"
+              className={`transition ${isScrolled ? "text-orange-500 hover:text-orange-700" : "text-white hover:text-orange-200"}`}
             >
               Membership
             </Link>
+
             <Link
               href="/discounts"
-              className="text-white transition hover:text-orange-200"
+              className={`transition ${isScrolled ? "text-orange-500 hover:text-orange-700" : "text-white hover:text-orange-200"}`}
             >
               Discounts
             </Link>
+
             <DropdownMenu>
-              <DropdownMenuTrigger className="flex items-center text-white transition hover:text-orange-200">
+              <DropdownMenuTrigger
+                className={`flex items-center transition ${isScrolled ? "text-orange-500 hover:text-orange-700" : "text-white hover:text-orange-200"}`}
+              >
                 Giveaways
                 <ChevronDown className="ml-1 h-4 w-4" />
               </DropdownMenuTrigger>
               <DropdownMenuContent>
                 <DropdownMenuItem>
-                  <Link href="/giveaways/current" className="w-full">
+                  <Link
+                    href="/giveaways/current"
+                    className="w-full text-secondary-color"
+                  >
                     Major Draws
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
-                  <Link href="/giveaways/past" className="w-full">
-                    Major Draws Winners{" "}
+                  <Link
+                    href="/giveaways/past"
+                    className="w-full text-secondary-color"
+                  >
+                    Major Draws Winners
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
-                  <Link href="/giveaways/winners" className="w-full">
-                    MY Entries
+                  <Link
+                    href="/giveaways/winners"
+                    className="w-full text-secondary-color"
+                  >
+                    My Entries
                   </Link>
                 </DropdownMenuItem>
               </DropdownMenuContent>
@@ -116,7 +129,9 @@ export default function Header() {
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
-                  <button className="w-full text-left">Logout</button>
+                  <Link href="/login" className="w-full text-left">
+                    Logout
+                  </Link>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>

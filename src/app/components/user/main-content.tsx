@@ -2,7 +2,7 @@ import { Clock, UserCheck } from "lucide-react";
 
 export default function MainContent() {
   return (
-    <main className="flex-1 px-6 py-8">
+    <main className="container mx-auto p-4">
       <div className="flex max-w-xl flex-col space-y-6">
         {/* Card 1 */}
         <div className="flex h-48 w-full flex-col items-center justify-center rounded-xl bg-white p-6 shadow-lg shadow-black/30">

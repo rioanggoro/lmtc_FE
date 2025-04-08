@@ -3,17 +3,16 @@ import Link from "next/link";
 import MainContent from "./main-content";
 
 import CategoriesCarousel from "./categories-carousel";
-import Header from "./header";
+import Header from "../layout/header";
 import { Home } from "lucide-react";
+import PartnerSection from "./partner";
 
 export default function Dashboard() {
   return (
     <div className="flex min-h-screen flex-col">
       {/* Background gradient */}
-      <div className="absolute inset-x-0 top-0 -z-10 h-56 rounded-b-3xl bg-gradient-to-r from-amber-800 via-orange-500 to-orange-500"></div>
-
+      <div className="absolute inset-x-0 top-0 -z-10 h-56 rounded-b-3xl bg-gradient-to-r from-amber-800 via-orange-500 to-orange-500" />
       <Header />
-
       {/* Breadcrumb */}
       <div className="flex items-center px-6 py-2 text-white/80">
         <Link href="/" className="hover:text-white">
@@ -35,10 +34,8 @@ export default function Dashboard() {
           <p className="text-orange-100">admin@rsg-wa.com.au</p>
         </div>
       </section>
-
       {/* Main content */}
       <MainContent />
-
       {/* Bottom navigation */}
       <div className="mt-auto bg-orange-600 py-4 text-white">
         <div className="container mx-auto flex justify-center space-x-6 overflow-x-auto">
@@ -77,6 +74,9 @@ export default function Dashboard() {
 
       {/* Categories section */}
       <CategoriesCarousel />
+
+      {/* Partner section */}
+      <PartnerSection />
     </div>
   );
 }
