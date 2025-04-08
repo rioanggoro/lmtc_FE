@@ -2,7 +2,7 @@ import { partners } from "~/lib/partnerts/";
 
 export default function PartnerSection() {
   return (
-    <div className="container mx-auto p-2">
+    <div className="container mx-auto p-4">
       <h2 className="mb-4 p-2 text-lg font-semibold text-gray-800">
         Exclusive Partners
       </h2>
