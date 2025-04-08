@@ -1,14 +1,17 @@
 "use client";
 
-import { Home, Clock, ChevronDown, Menu, UserCheck } from "lucide-react";
+import { Home, ChevronDown, Menu } from "lucide-react";
 import Link from "next/link";
 import { Avatar, AvatarFallback } from "../../../components/ui/avatar";
+import MainContent from "./main-content";
+
+import CategoriesCarousel from "./categories-carousel";
 
 export default function Dashboard() {
   return (
     <div className="flex min-h-screen flex-col">
       {/* Background gradient */}
-      <div className="absolute inset-x-0 top-0 -z-10 h-56 rounded-b-3xl bg-gradient-to-r from-orange-500 via-orange-600 to-orange-700"></div>
+      <div className="absolute inset-x-0 top-0 -z-10 h-56 rounded-b-3xl bg-gradient-to-r from-amber-800 via-orange-500 to-orange-500"></div>
 
       {/* Header */}
       <header className="flex items-center justify-between p-6">
@@ -72,41 +75,7 @@ export default function Dashboard() {
       </section>
 
       {/* Main content */}
-      <main className="flex-1 px-6 py-8">
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {/* Card 1 */}
-          <div className="rounded-xl bg-white p-6 shadow-lg">
-            <div className="flex items-start">
-              <div className="rounded-full bg-green-100 p-3">
-                <UserCheck className="h-6 w-6 text-green-600" />
-              </div>
-              <div className="ml-4">
-                <h3 className="font-medium text-gray-500">Hopkins Loyalty</h3>
-                <p className="mt-1 text-xl font-semibold text-gray-800">
-                  Active (x 1)
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Card 2 */}
-          <div className="rounded-xl bg-white p-6 shadow-lg">
-            <div className="flex items-start">
-              <div className="rounded-full bg-yellow-100 p-3">
-                <Clock className="h-6 w-6 text-yellow-600" />
-              </div>
-              <div className="ml-4">
-                <h3 className="font-medium text-gray-500">
-                  Once off Package Access
-                </h3>
-                <p className="mt-1 text-xl font-semibold text-gray-800">
-                  810 Days
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </main>
+      <MainContent />
 
       {/* Bottom navigation */}
       <div className="mt-auto bg-orange-600 py-4 text-white">
@@ -145,30 +114,7 @@ export default function Dashboard() {
       </div>
 
       {/* Categories section */}
-      <div className="container mx-auto grid grid-cols-1 gap-6 p-6 md:grid-cols-4">
-        <div className="flex items-center rounded-lg bg-white p-4 shadow">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="mr-3 h-6 w-6 text-gray-600"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M19 9l-7 7-7-7"
-            />
-          </svg>
-          <span className="font-medium">Automotive</span>
-        </div>
-
-        {/* Right side content placeholder */}
-        <div className="relative h-40 overflow-hidden rounded-lg bg-cyan-400 md:col-span-3">
-          {/* This would be where the cyan banner with content would go */}
-        </div>
-      </div>
+      <CategoriesCarousel />
     </div>
   );
 }
