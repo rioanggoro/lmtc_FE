@@ -98,7 +98,7 @@ export default function CategoriesCarousel() {
             className="flex h-full transition-transform duration-500 ease-in-out"
             style={{ transform: `translateX(-${currentSlide * 100}%)` }}
           >
-            {slides.map((slide, index) => (
+            {slides.map((slide) => (
               <div
                 key={slide.id}
                 className={`h-full w-full flex-shrink-0 ${slide.color} relative`}

@@ -1,11 +1,10 @@
 "use client";
-
-import { Home, ChevronDown, Menu } from "lucide-react";
 import Link from "next/link";
-import { Avatar, AvatarFallback } from "../../../components/ui/avatar";
 import MainContent from "./main-content";
 
 import CategoriesCarousel from "./categories-carousel";
+import Header from "./header";
+import { Home } from "lucide-react";
 
 export default function Dashboard() {
   return (
@@ -13,44 +12,7 @@ export default function Dashboard() {
       {/* Background gradient */}
       <div className="absolute inset-x-0 top-0 -z-10 h-56 rounded-b-3xl bg-gradient-to-r from-amber-800 via-orange-500 to-orange-500"></div>
 
-      {/* Header */}
-      <header className="flex items-center justify-between p-6">
-        <div className="flex">
-          <Link href="/" className="text-2xl font-bold text-white">
-            Hopkins
-          </Link>
-        </div>
-
-        <nav className="hidden items-center space-x-8 md:flex">
-          <Link
-            href="/membership"
-            className="text-white transition hover:text-orange-200"
-          >
-            Membership
-          </Link>
-          <Link
-            href="/discounts"
-            className="text-white transition hover:text-orange-200"
-          >
-            Discounts
-          </Link>
-          <div className="group relative">
-            <button className="flex items-center text-white transition hover:text-orange-200">
-              Giveaways
-              <ChevronDown className="ml-1 h-4 w-4" />
-            </button>
-          </div>
-        </nav>
-
-        <div className="flex items-center space-x-4">
-          <Avatar className="bg-gray-100">
-            <AvatarFallback>J</AvatarFallback>
-          </Avatar>
-          <button className="text-white md:hidden">
-            <Menu className="h-6 w-6" />
-          </button>
-        </div>
-      </header>
+      <Header />
 
       {/* Breadcrumb */}
       <div className="flex items-center px-6 py-2 text-white/80">
