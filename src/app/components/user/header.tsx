@@ -9,6 +9,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "../../../components/ui/dropdown-menu";
+import { ChevronDown } from "lucide-react";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -50,6 +51,45 @@ export default function Header() {
               />
             </Link>
           </div>
+
+          {/* Desktop Navigation */}
+          <nav className="hidden items-center space-x-8 md:flex">
+            <Link
+              href="/membership"
+              className="text-white transition hover:text-orange-200"
+            >
+              Membership
+            </Link>
+            <Link
+              href="/discounts"
+              className="text-white transition hover:text-orange-200"
+            >
+              Discounts
+            </Link>
+            <DropdownMenu>
+              <DropdownMenuTrigger className="flex items-center text-white transition hover:text-orange-200">
+                Giveaways
+                <ChevronDown className="ml-1 h-4 w-4" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent>
+                <DropdownMenuItem>
+                  <Link href="/giveaways/current" className="w-full">
+                    Major Draws
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <Link href="/giveaways/past" className="w-full">
+                    Major Draws Winners{" "}
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <Link href="/giveaways/winners" className="w-full">
+                    MY Entries
+                  </Link>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </nav>
 
           {/* User Menu & Mobile Toggle */}
           <div className="flex items-center space-x-4">
