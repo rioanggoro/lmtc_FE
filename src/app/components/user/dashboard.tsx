@@ -6,6 +6,7 @@ import CategoriesCarousel from "./categories-carousel";
 import Header from "../layout/header";
 import { Home } from "lucide-react";
 import ExclusivePartner from "./exclusive-partner";
+import FeaturedPartner from "./featured-partner";
 
 export default function Dashboard() {
   return (
@@ -77,6 +78,7 @@ export default function Dashboard() {
 
       {/* Partner section */}
       <ExclusivePartner />
+      <FeaturedPartner />
     </div>
   );
 }

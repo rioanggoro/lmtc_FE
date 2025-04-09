@@ -4,7 +4,7 @@ import { useState } from "react";
 import { partners, type Partner } from "../../../lib/partnerts";
 import { X, Facebook, Instagram, Globe } from "lucide-react";
 
-export default function ExclusivePartner() {
+export default function FeaturedPartner() {
   const [selectedPartner, setSelectedPartner] = useState<Partner | null>(null);
   const [showModal, setShowModal] = useState(false);
   const [isCopied, setIsCopied] = useState(false);
@@ -20,8 +20,7 @@ export default function ExclusivePartner() {
 
   const copyCode = (code: string) => {
     navigator.clipboard.writeText(code).then(() => {
-      setIsCopied(true); // Set copied state menjadi true
-      // Reset status copied setelah beberapa detik (misalnya 2 detik)
+      setIsCopied(true);
       setTimeout(() => setIsCopied(false), 2000);
     });
   };
@@ -30,7 +29,7 @@ export default function ExclusivePartner() {
     <div className="container mx-auto p-4">
       <div className="mb-4 flex items-center justify-between">
         <h2 className="text-xl font-semibold text-secondary-color">
-          Exclusive Partners
+          Featured Partners
         </h2>
         <a
           href="/partners"
