@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { partners, type Partner } from "~/lib/partnerts/";
+import { partners, type Partner } from "../../../lib/partnerts";
 import { X, Facebook, Instagram, Globe } from "lucide-react";
 
 export default function ExclusivePartner() {
