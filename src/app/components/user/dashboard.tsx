@@ -8,6 +8,7 @@ import { Home } from "lucide-react";
 import ExclusivePartner from "./exclusive-partner";
 import FeaturedPartner from "./featured-partner";
 import FeaturedAffiliatePartner from "./featured-affilate-partner";
+import NewPartner from "./new-partner";
 
 export default function Dashboard() {
   return (
@@ -81,6 +82,7 @@ export default function Dashboard() {
       <ExclusivePartner />
       <FeaturedPartner />
       <FeaturedAffiliatePartner />
+      <NewPartner />
     </div>
   );
 }

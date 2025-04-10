@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { partners, type Partner } from "../../../lib/partnerts";
-import { X, Facebook, Instagram, Globe } from "lucide-react";
 
 export default function FeaturedAffiliatePartner() {
   const [selectedPartner, setSelectedPartner] = useState<Partner | null>(null);
@@ -36,7 +35,7 @@ export default function FeaturedAffiliatePartner() {
     <div className="container mx-auto p-4">
       <div className="mb-4 flex items-center justify-between">
         <h2 className="text-xl font-semibold text-secondary-color">
-          Featured Affiliate Partner
+          Featured Affiliate Partners
         </h2>
         <a
           href="/partners"

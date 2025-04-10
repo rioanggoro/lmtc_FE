@@ -36,7 +36,7 @@ export default function FeaturedPartner() {
     <div className="container mx-auto p-4">
       <div className="mb-4 flex items-center justify-between">
         <h2 className="text-xl font-semibold text-secondary-color">
-          Featured Partner
+          Featured Partners
         </h2>
         <a
           href="/partners"
