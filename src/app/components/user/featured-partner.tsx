@@ -9,6 +9,9 @@ export default function FeaturedPartner() {
   const [showModal, setShowModal] = useState(false);
   const [isCopied, setIsCopied] = useState(false);
 
+  // Mengambil partner berdasarkan id: 1
+  const singlePartner = partners.find((partner) => partner.id === 1);
+
   const openModal = (partner: Partner) => {
     setSelectedPartner(partner);
     setShowModal(true);
@@ -25,11 +28,15 @@ export default function FeaturedPartner() {
     });
   };
 
+  if (!singlePartner) {
+    return <p>Partner not found</p>;
+  }
+
   return (
     <div className="container mx-auto p-4">
       <div className="mb-4 flex items-center justify-between">
         <h2 className="text-xl font-semibold text-secondary-color">
-          Featured Partners
+          Featured Partner
         </h2>
         <a
           href="/partners"
@@ -40,39 +47,34 @@ export default function FeaturedPartner() {
       </div>
 
       <div className="grid gap-6 md:grid-cols-2">
-        {partners.map((partner) => (
-          <div
-            key={partner.id}
-            className="flex overflow-hidden rounded-xl bg-white shadow-lg shadow-black/10 hover:shadow-black/30"
-          >
-            <div className="flex w-1/2 items-center justify-center bg-white p-6">
-              <img
-                src={partner.logo || "/placeholder.svg"}
-                alt={partner.name}
-                className="h-30 w-30 object-contain"
-              />
-            </div>
-            <div className="flex w-2/3 flex-col justify-between p-6">
-              <div>
-                {partner.isPopular && (
-                  <span className="mb-2 inline-block rounded-full bg-amber-100 px-3 py-1 text-xs font-medium text-amber-800">
-                    ⭐ Popular
-                  </span>
-                )}
-                <h3 className="text-lg font-semibold text-gray-800">
-                  {partner.name}
-                </h3>
-                <p className="text-sm text-gray-600">{partner.category}</p>
-              </div>
-              <button
-                className="mt-4 w-full rounded-full bg-orange-500 px-4 py-2 text-white transition hover:bg-orange-600"
-                onClick={() => openModal(partner)}
-              >
-                Get Code
-              </button>
-            </div>
+        <div className="flex overflow-hidden rounded-xl bg-white shadow-lg shadow-black/10">
+          <div className="flex w-1/2 items-center justify-center bg-white p-6">
+            <img
+              src={singlePartner.logo || "/placeholder.svg"}
+              alt={singlePartner.name}
+              className="h-30 w-30 object-contain"
+            />
           </div>
-        ))}
+          <div className="flex w-2/3 flex-col justify-between p-6">
+            <div>
+              {singlePartner.isPopular && (
+                <span className="mb-2 inline-block rounded-full bg-amber-100 px-3 py-1 text-xs font-medium text-amber-800">
+                  ⭐ Popular
+                </span>
+              )}
+              <h3 className="text-lg font-semibold text-gray-800">
+                {singlePartner.name}
+              </h3>
+              <p className="text-sm text-gray-600">{singlePartner.category}</p>
+            </div>
+            <button
+              className="mt-4 w-full rounded-full bg-orange-500 px-4 py-2 text-white transition hover:bg-orange-600"
+              onClick={() => openModal(singlePartner)}
+            >
+              Get Code
+            </button>
+          </div>
+        </div>
       </div>
 
       {/* Modal Popup */}
@@ -232,17 +234,17 @@ export default function FeaturedPartner() {
                   Call:
                 </span>
                 <a
-                  href={`mailto:${selectedPartner.phone}`}
+                  href={`tel:${selectedPartner.phone}`}
                   className="text-sm font-normal text-orange-600 hover:underline"
                 >
                   {selectedPartner.phone}
                 </a>
               </div>
             )}
+
             {/* Map placeholder */}
             {selectedPartner.hasMap && (
               <div className="mt-4 rounded border border-gray-200 bg-gray-50 p-2 text-center text-sm text-orange-600 hover:underline">
-                {/* Display uploaded map image */}
                 <div className="mt-2">
                   <img
                     src={selectedPartner.hasMap}

@@ -7,6 +7,7 @@ import Header from "../layout/header";
 import { Home } from "lucide-react";
 import ExclusivePartner from "./exclusive-partner";
 import FeaturedPartner from "./featured-partner";
+import FeaturedAffiliatePartner from "./featured-affilate-partner";
 
 export default function Dashboard() {
   return (
@@ -79,6 +80,7 @@ export default function Dashboard() {
       {/* Partner section */}
       <ExclusivePartner />
       <FeaturedPartner />
+      <FeaturedAffiliatePartner />
     </div>
   );
 }
