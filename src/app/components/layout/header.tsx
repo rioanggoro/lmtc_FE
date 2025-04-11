@@ -37,7 +37,7 @@ export default function Header() {
         className={`py-3 transition-all duration-300 md:px-6 ${
           isScrolled
             ? "bg-white shadow-md"
-            : "bg-gradient-to-r from-amber-800 via-orange-500"
+            : "bg-gradient-to-r from-amber-800 via-orange-500 to-orange-700" // Tambahkan warna tujuan agar gradasinya lebih kuat
         }`}
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between">
@@ -47,7 +47,7 @@ export default function Header() {
               <img
                 src="/img/hopkins_img.png"
                 alt="MCH+"
-                className="hidden h-10 md:block"
+                className="hidden h-10 bg-white md:block"
               />
             </Link>
           </div>
@@ -62,7 +62,7 @@ export default function Header() {
             </Link>
 
             <Link
-              href="/discounts"
+              href="/partners"
               className={`transition ${isScrolled ? "text-orange-500 hover:text-orange-700" : "text-white hover:text-orange-200"}`}
             >
               Discounts

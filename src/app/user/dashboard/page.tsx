@@ -47,13 +47,13 @@ export default function Dashboard() {
       <div className="mt-auto bg-orange-600 py-4 text-white">
         <div className="container mx-auto flex justify-center space-x-6 overflow-x-auto">
           <Link
-            href="/dashboard"
+            href="/user"
             className="border-b-2 border-white px-3 py-1 font-medium"
           >
             DASHBOARD
           </Link>
           <Link
-            href="/partner-search"
+            href="/partners"
             className="px-3 py-1 font-medium hover:border-b-2 hover:border-white"
           >
             PARTNER SEARCH
