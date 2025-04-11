@@ -1,10 +1,22 @@
+"use client";
 import Link from "next/link";
 import Header from "../components/layout/header";
 import FooterUser from "../components/ui/footer-user";
 import { ChevronRight, Home, Copy } from "lucide-react";
 import Image from "next/image";
+import { useState } from "react";
 
 export default function Membership() {
+  const [isCopied, setIsCopied] = useState(false);
+
+  // Fungsi untuk menyalin kode ke clipboard
+  const copyCode = (code: string) => {
+    navigator.clipboard.writeText(code).then(() => {
+      setIsCopied(true); // Set copied state menjadi true
+      // Reset status copied setelah beberapa detik (misalnya 2 detik)
+      setTimeout(() => setIsCopied(false), 2000);
+    });
+  };
   return (
     <div>
       <Header />
@@ -49,7 +61,7 @@ export default function Membership() {
           {/* Membership Details */}
           <div className="mb-8 h-[250px] rounded-lg bg-orange-50">
             <div className="text-center">
-              <h2 className="mb-4 text-2xl font-bold">Entry Membership</h2>
+              <h2 className="text-2xl font-bold">Entry Membership</h2>
               <p className="mb-2 text-gray-700">
                 Want to{" "}
                 <Link
@@ -89,20 +101,7 @@ export default function Membership() {
 
             {/* Stats Cards */}
             <div className="px grid grid-cols-1 gap-6 px-20 md:grid-cols-3">
-              {/* Current Entries */}
-              <div className="relative overflow-hidden rounded-lg bg-orange-500 p-6 text-white shadow-lg shadow-black/20">
-                <div className="absolute bottom-0 right-0 opacity-20">
-                  <svg
-                    width="150"
-                    height="150"
-                    viewBox="0 0 200 200"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path d="M0 0L200 200H0V0Z" fill="white" />
-                    <path d="M200 0L0 200H200V0Z" fill="white" />
-                  </svg>
-                </div>
+              <div className="relative overflow-hidden rounded-lg bg-orange-500 p-6 text-white shadow-md shadow-black/30">
                 <h3 className="mb-4 text-xl font-semibold">Current Entries</h3>
                 <div className="flex flex-col items-center">
                   <div className="mb-2 flex h-20 w-20 items-center justify-center rounded-md bg-orange-600 text-5xl font-bold">
@@ -112,20 +111,7 @@ export default function Membership() {
                 </div>
               </div>
 
-              {/* Upcoming Prizes */}
-              <div className="relative overflow-hidden rounded-lg bg-black p-6 text-white">
-                <div className="absolute bottom-0 right-0 opacity-20">
-                  <svg
-                    width="150"
-                    height="150"
-                    viewBox="0 0 200 200"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path d="M0 0L200 200H0V0Z" fill="white" />
-                    <path d="M200 0L0 200H200V0Z" fill="white" />
-                  </svg>
-                </div>
+              <div className="relative overflow-hidden rounded-lg bg-black p-6 text-white shadow-md shadow-black/30">
                 <h3 className="mb-6 text-xl font-semibold">
                   Prize Value of
                   <br />
@@ -136,20 +122,7 @@ export default function Membership() {
                 </div>
               </div>
 
-              {/* Current Prizes */}
-              <div className="relative overflow-hidden rounded-lg bg-orange-500 p-6 text-white">
-                <div className="absolute bottom-0 right-0 opacity-20">
-                  <svg
-                    width="150"
-                    height="150"
-                    viewBox="0 0 200 200"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path d="M0 0L200 200H0V0Z" fill="white" />
-                    <path d="M200 0L0 200H200V0Z" fill="white" />
-                  </svg>
-                </div>
+              <div className="relative overflow-hidden rounded-lg bg-orange-500 p-6 text-white shadow-md shadow-black/30">
                 <h3 className="mb-6 text-xl font-semibold">
                   Prize Value of
                   <br />
@@ -163,6 +136,40 @@ export default function Membership() {
           </div>
         </div>
         <div className="pb-[125px]"></div>
+        {/* Discount Code Section */}
+        <div className="mb-8 text-center">
+          <div className="relative mx-auto mb-6 w-[460px] rounded-lg border border-dashed border-orange-300 bg-white py-6 shadow">
+            <h3 className="mb-4 text-lg font-semibold text-gray-700">
+              LMCT+ Store Discount Code
+            </h3>
+            <div className="mx-auto w-fit rounded-md bg-orange-50 px-8 py-3 text-orange-500 shadow-sm ring-1 ring-orange-300">
+              <span className="font-semibold tracking-wide">15ENTRYLMCT</span>
+              <button
+                onClick={() => copyCode("15ENTRYLMCT")} // Panggil fungsi copyCode saat tombol ditekan
+                className="ml-2 inline-flex align-middle text-orange-500 hover:text-orange-700"
+              >
+                <Copy className="h-4 w-4" />
+              </button>
+            </div>
+            {isCopied && (
+              <div className="mt-2 text-sm text-green-500">Code copied!</div>
+            )}
+          </div>
+
+          <div className="mt-6">
+            <Link href="/user">
+              <button className="mx-2 rounded-md bg-primary-color px-6 py-2 text-white hover:bg-orange-700">
+                Return To Profile
+              </button>
+            </Link>
+            <br />
+            <Link href="/cancel">
+              <button className="mx-2 text-sm text-red-500 underline hover:text-red-700">
+                Cancel Plan
+              </button>
+            </Link>
+          </div>
+        </div>
       </main>
       <FooterUser />
     </div>
