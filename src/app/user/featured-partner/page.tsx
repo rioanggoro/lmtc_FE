@@ -34,7 +34,7 @@ export default function FeaturedPartner() {
 
   return (
     <div className="container mx-auto p-4">
-      <div className="mb-4 flex items-center justify-between">
+      <div className="mb-6 flex items-center justify-between border-b pb-2">
         <h2 className="text-xl font-semibold text-secondary-color">
           Featured Partners
         </h2>
@@ -252,7 +252,7 @@ export default function FeaturedPartner() {
                     className="mx-auto mt-4 w-full rounded-lg"
                   />
                 </div>
-                <a href="#" onClick={(e) => e.preventDefault()}>
+                <a href="/user" onClick={(e) => e.preventDefault()}>
                   View larger map
                 </a>
               </div>

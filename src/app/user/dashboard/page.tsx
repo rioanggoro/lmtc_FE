@@ -11,6 +11,8 @@ import FeaturedAffiliatePartner from "../featured-affilate-partner/page";
 import NewPartner from "../new-partner/page";
 import AffilliatePartner from "../affilliate-partner/page";
 import FeaturedStores from "../featured-stores/page";
+import AllCategories from "../all-categories/page";
+import FooterUser from "../../components/ui/footer-user";
 
 export default function Dashboard() {
   return (
@@ -87,6 +89,10 @@ export default function Dashboard() {
       <NewPartner />
       <AffilliatePartner />
       <FeaturedStores />
+      <AllCategories />
+
+      {/* Footer */}
+      <FooterUser />
     </div>
   );
 }

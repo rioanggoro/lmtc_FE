@@ -48,20 +48,7 @@ export default function FeaturedSections() {
             className="flex items-center text-sm text-gray-600 hover:text-gray-900"
           >
             View All
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="ml-1 h-4 w-4"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M9 5l7 7-7 7"
-              />
-            </svg>
+            <hr className="my-8 h-px border-0 bg-gray-200 dark:bg-gray-700"></hr>
           </Link>
         </div>
 

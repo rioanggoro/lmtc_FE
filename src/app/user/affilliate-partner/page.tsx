@@ -11,7 +11,7 @@ export default function AffiliatePartner() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <div className="mb-6 flex items-center justify-between">
+      <div className="mb-6 flex items-center justify-between border-b pb-2">
         <h2 className="text-xl font-semibold text-secondary-color">
           Affiliate Partners
         </h2>
