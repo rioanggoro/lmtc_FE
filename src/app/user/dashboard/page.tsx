@@ -10,6 +10,7 @@ import FeaturedPartner from "../featured-partner/page";
 import FeaturedAffiliatePartner from "../featured-affilate-partner/page";
 import NewPartner from "../new-partner/page";
 import AffilliatePartner from "../affilliate-partner/page";
+import FeaturedStores from "../featured-stores/page";
 
 export default function Dashboard() {
   return (
@@ -85,6 +86,7 @@ export default function Dashboard() {
       <FeaturedAffiliatePartner />
       <NewPartner />
       <AffilliatePartner />
+      <FeaturedStores />
     </div>
   );
 }
