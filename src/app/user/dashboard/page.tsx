@@ -1,14 +1,14 @@
 "use client";
 import Link from "next/link";
-import MainContent from "./main-content";
+import MainContent from "../main-content/page";
 
-import CategoriesCarousel from "./categories-carousel";
-import Header from "../layout/header";
+import CategoriesCarousel from "../../components/ui/categories-carousel";
+import Header from "../../components/layout/header";
 import { Home } from "lucide-react";
-import ExclusivePartner from "./exclusive-partner";
-import FeaturedPartner from "./featured-partner";
-import FeaturedAffiliatePartner from "./featured-affilate-partner";
-import NewPartner from "./new-partner";
+import ExclusivePartner from "../exclusive-partner/page";
+import FeaturedPartner from "../featured-partner/page";
+import FeaturedAffiliatePartner from "../featured-affilate-partner/page";
+import NewPartner from "../new-partner/page";
 
 export default function Dashboard() {
   return (
