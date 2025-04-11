@@ -13,7 +13,7 @@ import {
   Sofa,
   Home,
 } from "lucide-react";
-import { stores, type Stores } from "~/lib/stores/";
+import { stores, type Stores } from "../../../lib/stores";
 
 // Category data
 const categories = [
