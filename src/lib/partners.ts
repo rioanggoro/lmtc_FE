@@ -1,4 +1,3 @@
-// Define the Partner type
 export interface Partner {
   id: number;
   name: string;
@@ -17,6 +16,7 @@ export interface Partner {
   instagram?: string;
   website?: string;
   hasMap?: string;
+  url?: string;
 }
 
 export const partners: Partner[] = [
@@ -41,6 +41,7 @@ export const partners: Partner[] = [
     instagram: "https://instagram.com/shoegrab",
     website: "https://shoegrab.com.au",
     hasMap: "/img/map.png",
+    url: "https://shoegrab.com.au",
   },
   {
     id: 2,
@@ -53,6 +54,7 @@ export const partners: Partner[] = [
     description:
       "InCharge Automotive is a leading automotive repair shop in Melbourne, offering a range of services to help keep your vehicle in top condition.",
     tags: ["Automotive", "Repair", "Service"],
+    url: "https://inchargeautomotive.com.au",
   },
   {
     id: 3,
@@ -63,6 +65,7 @@ export const partners: Partner[] = [
     discount: "10%",
     promoCode: "LMCTDEAL10",
     tags: ["Furniture", "Electronics", "Homeware"],
+    url: "https://mydeal.com.au",
   },
   {
     id: 4,
@@ -73,5 +76,6 @@ export const partners: Partner[] = [
     discount: "20%",
     promoCode: "LMCT4X4",
     tags: ["Automotive", "4x4", "Workshops"],
+    url: "https://twd4x4.com.au",
   },
 ];

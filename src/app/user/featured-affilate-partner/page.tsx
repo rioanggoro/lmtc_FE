@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { partners, type Partner } from "../../../lib/partnerts";
+import { partners, type Partner } from "../../../lib/partners";
 
 export default function FeaturedAffiliatePartner() {
   const [selectedPartner, setSelectedPartner] = useState<Partner | null>(null);

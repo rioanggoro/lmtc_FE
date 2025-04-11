@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { partners, type Partner } from "../../../lib/partnerts";
+import { partners, type Partner } from "../../../lib/partners";
 import { X, Facebook, Instagram, Globe } from "lucide-react";
 
-export default function PartnersDisplay() {
+export default function NewPartner() {
   const [selectedPartner, setSelectedPartner] = useState<Partner | null>(null);
   const [showModal, setShowModal] = useState(false);
   const [isCopied, setIsCopied] = useState(false);
