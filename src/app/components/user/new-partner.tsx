@@ -28,7 +28,9 @@ export default function PartnersDisplay() {
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="mb-6 flex items-center justify-between">
-        <h2 className="text-2xl font-semibold text-gray-800">New Partners</h2>
+        <h2 className="text-xl font-semibold text-secondary-color">
+          New Partners
+        </h2>
         <a
           href="/partners"
           className="flex items-center text-sm text-gray-600 hover:text-gray-800"
@@ -56,7 +58,7 @@ export default function PartnersDisplay() {
               </h3>
               <p className="text-sm text-gray-600">{partner.category}</p>
               <button
-                className="mt-4 w-full rounded-full bg-blue-500 px-4 py-2 text-white transition hover:bg-blue-600"
+                className="mt-4 w-full rounded-full bg-orange-500 px-4 py-2 text-white transition hover:bg-orange-600"
                 onClick={() => openModal(partner)}
               >
                 Get Code
@@ -109,7 +111,7 @@ export default function PartnersDisplay() {
                 onClick={() =>
                   copyCode(selectedPartner.promoCode || "LMCTCODE")
                 }
-                className="rounded-full bg-blue-500 px-6 py-3 font-medium text-white hover:bg-blue-600"
+                className="rounded-full bg-orange-500 px-6 py-3 font-medium text-white hover:bg-orange-600"
               >
                 {isCopied ? "Copied" : "Copy"}
               </button>
@@ -127,7 +129,7 @@ export default function PartnersDisplay() {
             <div className="mb-6 flex justify-center gap-2">
               <a
                 href={selectedPartner.facebook}
-                className="flex h-10 w-10 items-center justify-center rounded-md bg-blue-600 text-white hover:bg-blue-700"
+                className="flex h-10 w-10 items-center justify-center rounded-md bg-orange-600 text-white hover:bg-orange-700"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -143,7 +145,7 @@ export default function PartnersDisplay() {
               </a>
               <a
                 href={selectedPartner.website}
-                className="flex h-10 w-10 items-center justify-center rounded-md bg-blue-500 text-white hover:bg-blue-600"
+                className="flex h-10 w-10 items-center justify-center rounded-md bg-orange-500 text-white hover:bg-orange-600"
                 target="_blank"
                 rel="noopener noreferrer"
               >
