@@ -1,12 +1,12 @@
 "use client";
 import Link from "next/link";
-import Header from "../components/layout/header";
-import { partners, type Partner } from "../../lib/partners";
+import Header from "../../components/layout/header";
+import { partners, type Partner } from "../../../lib/partners";
 import { useState } from "react";
 import { Globe, Instagram, X, Facebook, Menu, Filter } from "lucide-react";
-import FilterPartners from "../components/ui/filter-partners";
-import FooterUser from "../components/ui/footer-user";
-import Pagination from "../components/layout/pagination";
+import FilterPartners from "../../components/ui/filter-partners";
+import FooterUser from "../../components/ui/footer-user";
+import Pagination from "../../components/layout/pagination";
 
 export default function AffiliatePage() {
   const [selectedPartner, setSelectedPartner] = useState<Partner | null>(null);

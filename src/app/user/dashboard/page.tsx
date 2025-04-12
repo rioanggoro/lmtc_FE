@@ -13,7 +13,7 @@ import FeaturedStores from "../featured-stores/page";
 import AllCategories from "../all-categories/page";
 import FooterUser from "../../components/ui/footer-user";
 import { useState } from "react";
-import AffiliatePage from "../../partners-affiliate/page";
+import AffiliatePage from "../../partners/affiliate/page";
 
 export default function Dashboard() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
