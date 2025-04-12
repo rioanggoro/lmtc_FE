@@ -7,6 +7,9 @@ import { Globe, Instagram, X, Facebook, Menu, Filter } from "lucide-react";
 import FilterPartners from "../components/ui/filter-partners";
 import FooterUser from "../components/ui/footer-user";
 import Pagination from "../components/layout/pagination";
+import MobileMenuButton from "../components/ui/MobileMenuButton";
+import MobileMenu from "../components/ui/MobileMenuButton";
+import MobileBottomNavigationBar from "../components/ui/MobileBottomNavigationBar";
 
 export default function Partners() {
   const [selectedPartner, setSelectedPartner] = useState<Partner | null>(null);
@@ -15,7 +18,7 @@ export default function Partners() {
   const [page, setPage] = useState(1);
   const [showFilters, setShowFilters] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
-
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const openModal = (partner: Partner) => {
     setSelectedPartner(partner);
     setShowModal(true);
@@ -44,58 +47,17 @@ export default function Partners() {
     <div className="flex min-h-screen flex-col">
       <Header />
 
-      {/* Mobile Navigation */}
-      <div className="bg-orange-600 py-3 text-white lg:hidden">
-        <div className="container mx-auto flex items-center justify-between px-4">
-          <button
-            onClick={toggleMobileMenu}
-            className="flex items-center space-x-2"
-          >
-            <Menu className="h-5 w-5" />
-            <span>Menu</span>
-          </button>
-          <span className="font-medium">PARTNER SEARCH</span>
-          <div className="w-5"></div> {/* Spacer for alignment */}
-        </div>
+      {/* Tombol Navigasi Mobile */}
+      <MobileMenuButton
+        mobileMenuOpen={mobileMenuOpen}
+        toggleMobileMenu={toggleMobileMenu}
+      />
 
-        {/* Mobile Menu Dropdown */}
-        {showMobileMenu && (
-          <div className="container mx-auto mt-2 px-4">
-            <div className="flex flex-col space-y-3 border-t border-orange-500 pt-3">
-              <Link
-                href="/user"
-                className="px-2 py-1 font-medium hover:bg-orange-500"
-              >
-                DASHBOARD
-              </Link>
-              <Link
-                href="/partner-search"
-                className="bg-orange-700 px-2 py-1 font-medium"
-              >
-                PARTNER SEARCH
-              </Link>
-              <Link
-                href="/partners-affiliate"
-                className="px-2 py-1 font-medium hover:bg-orange-500"
-              >
-                AFFILIATE PARTNERS
-              </Link>
-              <Link
-                href="/store-search"
-                className="px-2 py-1 font-medium hover:bg-orange-500"
-              >
-                STORE SEARCH
-              </Link>
-              <Link
-                href="/categories"
-                className="px-2 py-1 font-medium hover:bg-orange-500"
-              >
-                CATEGORIES
-              </Link>
-            </div>
-          </div>
-        )}
-      </div>
+      {/* Menu Navigasi Mobile */}
+      <MobileMenu
+        mobileMenuOpen={mobileMenuOpen}
+        toggleMobileMenu={toggleMobileMenu}
+      />
 
       {/* Desktop Navigation */}
       <div className="hidden bg-orange-600 py-4 text-white lg:block">
@@ -172,44 +134,40 @@ export default function Partners() {
               </div>
 
               {/* Partner Results */}
-              <div className="flex flex-col gap-4 sm:gap-6">
-                {partners.map((partner) => (
-                  <div
-                    key={partner.id}
-                    className="flex flex-col rounded bg-white p-4 shadow-md sm:flex-row sm:items-center"
-                  >
-                    {/* Partner Logo */}
-                    <div className="mb-4 flex justify-center sm:mb-0 sm:mr-4 sm:justify-start">
-                      <img
-                        src={partner.logo || "/placeholder.svg"}
-                        alt={partner.name}
-                        className="h-16 w-auto object-contain sm:h-20"
-                      />
-                    </div>
-
-                    {/* Partner Info */}
-                    <div className="mb-4 flex-1 text-center sm:mb-0 sm:text-left">
-                      <h4 className="font-semibold">{partner.name}</h4>
-                      <p className="text-sm text-gray-600">
-                        {partner.category}
-                      </p>
-                    </div>
-
-                    {/* Action Button */}
-                    <div className="flex flex-col items-center sm:items-end">
-                      <button
-                        className="w-full rounded-full bg-orange-500 px-4 py-2 text-white transition hover:bg-orange-600 sm:w-auto sm:min-w-[120px]"
-                        onClick={() => openModal(partner)}
-                      >
-                        Get Code
-                      </button>
-                      <button className="mt-2 text-sm text-blue-600 hover:text-blue-700">
-                        Details
-                      </button>
-                    </div>
+              {partners.map((partner, index) => (
+                <div
+                  key={`${partner.id}-${index}`} // Use both `id` and `index` for uniqueness
+                  className="flex flex-col rounded bg-white p-4 shadow-md sm:flex-row sm:items-center"
+                >
+                  {/* Partner Logo */}
+                  <div className="mb-4 flex justify-center sm:mb-0 sm:mr-4 sm:justify-start">
+                    <img
+                      src={partner.logo || "/placeholder.svg"}
+                      alt={partner.name}
+                      className="h-16 w-auto object-contain sm:h-20"
+                    />
                   </div>
-                ))}
-              </div>
+
+                  {/* Partner Info */}
+                  <div className="mb-4 flex-1 text-center sm:mb-0 sm:text-left">
+                    <h4 className="font-semibold">{partner.name}</h4>
+                    <p className="text-sm text-gray-600">{partner.category}</p>
+                  </div>
+
+                  {/* Action Button */}
+                  <div className="flex flex-col items-center sm:items-end">
+                    <button
+                      className="w-full rounded-full bg-orange-500 px-4 py-2 text-white transition hover:bg-orange-600 sm:w-auto sm:min-w-[120px]"
+                      onClick={() => openModal(partner)}
+                    >
+                      Get Code
+                    </button>
+                    <button className="mt-2 text-sm text-blue-600 hover:text-blue-700">
+                      Details
+                    </button>
+                  </div>
+                </div>
+              ))}
 
               {/* Pagination */}
               <div className="mt-8">
@@ -219,6 +177,7 @@ export default function Partners() {
                   onPageChange={(newPage) => setPage(newPage)}
                 />
               </div>
+              <MobileBottomNavigationBar />
             </div>
           </div>
         </div>

@@ -7,6 +7,8 @@ import { Globe, Instagram, X, Facebook, Menu, Filter } from "lucide-react";
 import FilterPartners from "../../components/ui/filter-partners";
 import FooterUser from "../../components/ui/footer-user";
 import Pagination from "../../components/layout/pagination";
+import MobileMenuButton from "../../components/ui/MobileMenuButton";
+import MobileMenu from "../../components/ui/MobileMenuButton";
 
 export default function AffiliatePage() {
   const [selectedPartner, setSelectedPartner] = useState<Partner | null>(null);
@@ -15,7 +17,7 @@ export default function AffiliatePage() {
   const [page, setPage] = useState(1);
   const [showFilters, setShowFilters] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
-
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const openModal = (partner: Partner) => {
     setSelectedPartner(partner);
     setShowModal(true);
@@ -44,58 +46,17 @@ export default function AffiliatePage() {
     <div className="flex min-h-screen flex-col">
       <Header />
 
-      {/* Mobile Navigation */}
-      <div className="bg-orange-600 py-3 text-white lg:hidden">
-        <div className="container mx-auto flex items-center justify-between px-4">
-          <button
-            onClick={toggleMobileMenu}
-            className="flex items-center space-x-2"
-          >
-            <Menu className="h-5 w-5" />
-            <span>Menu</span>
-          </button>
-          <span className="font-medium">PARTNER SEARCH</span>
-          <div className="w-5"></div> {/* Spacer for alignment */}
-        </div>
+      {/* Tombol Navigasi Mobile */}
+      <MobileMenuButton
+        mobileMenuOpen={mobileMenuOpen}
+        toggleMobileMenu={toggleMobileMenu}
+      />
 
-        {/* Mobile Menu Dropdown */}
-        {showMobileMenu && (
-          <div className="container mx-auto mt-2 px-4">
-            <div className="flex flex-col space-y-3 border-t border-orange-500 pt-3">
-              <Link
-                href="/user"
-                className="px-2 py-1 font-medium hover:bg-orange-500"
-              >
-                DASHBOARD
-              </Link>
-              <Link
-                href="/partners"
-                className="bg-orange-700 px-2 py-1 font-medium"
-              >
-                PARTNER SEARCH
-              </Link>
-              <Link
-                href="/partners/affiliate"
-                className="px-2 py-1 font-medium hover:bg-orange-500"
-              >
-                AFFILIATE PARTNERS
-              </Link>
-              <Link
-                href="/store-search"
-                className="px-2 py-1 font-medium hover:bg-orange-500"
-              >
-                STORE SEARCH
-              </Link>
-              <Link
-                href="/categories"
-                className="px-2 py-1 font-medium hover:bg-orange-500"
-              >
-                CATEGORIES
-              </Link>
-            </div>
-          </div>
-        )}
-      </div>
+      {/* Menu Navigasi Mobile */}
+      <MobileMenu
+        mobileMenuOpen={mobileMenuOpen}
+        toggleMobileMenu={toggleMobileMenu}
+      />
 
       {/* Desktop Navigation */}
       <div className="hidden bg-orange-600 py-4 text-white lg:block">
