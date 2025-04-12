@@ -1,12 +1,12 @@
 "use client";
 import Link from "next/link";
-import Header from "../../components/layout/header";
-import { partners, type Partner } from "../../../lib/partners";
+import Header from "../components/layout/header";
+import { partners, type Partner } from "../../lib/partners";
 import { useState } from "react";
 import { Globe, Instagram, X, Facebook, Menu, Filter } from "lucide-react";
-import FilterPartners from "../../components/ui/filter-partners";
-import FooterUser from "../../components/ui/footer-user";
-import Pagination from "../../components/layout/pagination";
+import FilterPartners from "../components/ui/filter-partners";
+import FooterUser from "../components/ui/footer-user";
+import Pagination from "../components/layout/pagination";
 
 export default function AffiliatePage() {
   const [selectedPartner, setSelectedPartner] = useState<Partner | null>(null);
@@ -108,13 +108,13 @@ export default function AffiliatePage() {
           </Link>
           <Link
             href="/partners"
-            className="border-b-2 border-white px-3 py-1 font-medium"
+            className="px-3 py-1 font-medium hover:border-b-2 hover:border-white"
           >
             PARTNER SEARCH
           </Link>
           <Link
-            href="/partners/affiliate"
-            className="px-3 py-1 font-medium hover:border-b-2 hover:border-white"
+            href="/partners-affiliate"
+            className="border-b-2 border-white px-3 py-1 font-medium"
           >
             AFFILIATE PARTNERS
           </Link>

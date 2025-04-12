@@ -75,7 +75,7 @@ export default function Partners() {
                 PARTNER SEARCH
               </Link>
               <Link
-                href="/partners/affiliate"
+                href="/partners-affiliate"
                 className="px-2 py-1 font-medium hover:bg-orange-500"
               >
                 AFFILIATE PARTNERS
@@ -113,7 +113,7 @@ export default function Partners() {
             PARTNER SEARCH
           </Link>
           <Link
-            href="/partners/affiliate"
+            href="/partners-affiliate"
             className="px-3 py-1 font-medium hover:border-b-2 hover:border-white"
           >
             AFFILIATE PARTNERS

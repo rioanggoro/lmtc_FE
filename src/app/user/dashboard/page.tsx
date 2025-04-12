@@ -13,7 +13,7 @@ import FeaturedStores from "../featured-stores/page";
 import AllCategories from "../all-categories/page";
 import FooterUser from "../../components/ui/footer-user";
 import { useState } from "react";
-import AffiliatePage from "../../partners/affiliate/page";
+import AffiliatePage from "../../partners-affiliate/page";
 
 export default function Dashboard() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -68,7 +68,7 @@ export default function Dashboard() {
               </li>
               <li>
                 <Link
-                  href="/affiliate-partners"
+                  href="/partners-affiliate"
                   className="block border-l-4 border-transparent px-4 py-3 text-lg font-medium text-white/80 transition hover:border-white hover:text-white"
                   onClick={toggleMobileMenu}
                 >
@@ -139,7 +139,7 @@ export default function Dashboard() {
             PARTNER SEARCH
           </Link>
           <Link
-            href="/partners/affiliate"
+            href="/partners-affiliate"
             className="px-3 py-1 font-medium hover:border-b-2 hover:border-white"
           >
             AFFILIATE PARTNERS
