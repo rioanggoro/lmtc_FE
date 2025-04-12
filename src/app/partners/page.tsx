@@ -59,7 +59,6 @@ export default function Partners() {
         toggleMobileMenu={toggleMobileMenu}
       />
 
-      {/* Desktop Navigation */}
       <div className="hidden bg-orange-600 py-4 text-white lg:block">
         <div className="container mx-auto flex justify-center space-x-6 overflow-x-auto">
           <Link
@@ -75,7 +74,7 @@ export default function Partners() {
             PARTNER SEARCH
           </Link>
           <Link
-            href="/partners/affiliate"
+            href="/partners-affiliate"
             className="px-3 py-1 font-medium hover:border-b-2 hover:border-white"
           >
             AFFILIATE PARTNERS

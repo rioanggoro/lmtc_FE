@@ -1,102 +1,211 @@
 "use client";
-
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import Link from "next/link";
+import FooterUser from "../components/ui/footer-user";
+import Header from "../components/layout/header";
 import {
   Car,
   Hammer,
-  Wrench,
-  ShoppingCart,
+  Box,
   Scissors,
   Heart,
   Coffee,
+  Film,
+  Dumbbell,
   PawPrint,
-  Gamepad2,
-  Users,
-  Sparkles,
-  ChevronLeft,
-  ChevronRight,
 } from "lucide-react";
-import AllCategories from "../user/all-categories/page";
-import FooterUser from "../components/ui/footer-user";
-import Header from "../components/layout/header";
+import MobileMenuButton from "../components/ui/MobileMenuButton";
+import MobileMenu from "../components/ui/MobileMenuButton"; // Ensure you have this component imported
+import AllCategories from "../components/ui/all-categories";
+import MobileBottomNavigationBar from "../components/ui/MobileBottomNavigationBar";
 
 export default function Categories() {
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  const categories = [
-    { name: "Automotive", icon: Car },
-    { name: "Trades & Services", icon: Hammer },
-    { name: "Services", icon: Wrench },
-    { name: "Retail", icon: ShoppingCart },
-    { name: "Beauty", icon: Scissors },
-    { name: "Health & Fitness", icon: Heart },
-    { name: "Food & Beverages", icon: Coffee },
-    { name: "Pets", icon: PawPrint },
-    { name: "Recreation", icon: Gamepad2 },
-    { name: "Affiliates", icon: Users },
-    { name: "Cosmetics", icon: Sparkles },
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const featuredCategories = [
+    {
+      name: "Automotive",
+      icon: <Car className="h-6 w-6" />,
+      href: "/categories/automotive",
+    },
+    {
+      name: "Trades & Services",
+      icon: <Hammer className="h-6 w-6" />,
+      href: "/categories/trades-services",
+    },
+    {
+      name: "Services",
+      icon: <Box className="h-6 w-6" />,
+      href: "/categories/services",
+    },
+    {
+      name: "Retail",
+      icon: <Box className="h-6 w-6" />,
+      href: "/categories/retail",
+    },
+    {
+      name: "Beauty",
+      icon: <Scissors className="h-6 w-6" />,
+      href: "/categories/beauty",
+    },
+    {
+      name: "Health & Fitness",
+      icon: <Dumbbell className="h-6 w-6" />,
+      href: "/categories/health-fitness",
+    },
+    {
+      name: "Food & Beverages",
+      icon: <Coffee className="h-6 w-6" />,
+      href: "/categories/food-beverages",
+    },
+    {
+      name: "Pets",
+      icon: <PawPrint className="h-6 w-6" />,
+      href: "/categories/pets",
+    },
+    {
+      name: "Recreation",
+      icon: <Film className="h-6 w-6" />,
+      href: "/categories/recreation",
+    },
+    {
+      name: "Affiliates",
+      icon: <Heart className="h-6 w-6" />,
+      href: "/categories/affiliates",
+    },
+    {
+      name: "Cosmetics",
+      icon: <Heart className="h-6 w-6" />,
+      href: "/categories/cosmetics",
+    },
   ];
 
-  const slides = [
+  const allCategories = [
     {
-      id: 1,
-      title: "Gee Up",
-      description: "CODE: LMCT+ FOR 10% OFF",
-      image: "/img/hopkins_img.png?height=400&width=800",
-      color: "bg-cyan-400",
+      name: "Automotive",
+      subcategories: [
+        "Wheels & Tyres",
+        "Paint & Panel Repair",
+        "Harrop Distributors",
+        "Servicing",
+        "Workshops",
+        "Detailing & Car Care",
+      ],
     },
     {
-      id: 2,
-      title: "Summer Sale",
-      description: "Up to 50% off selected items",
-      image: "/placeholder.svg?height=400&width=800",
-      color: "bg-pink-400",
+      name: "Trades & Services",
+      subcategories: [
+        "Air Conditioning",
+        "Electrical",
+        "Plumbing",
+        "Building",
+        "Flooring",
+        "Epoxy",
+      ],
     },
     {
-      id: 3,
-      title: "New Arrivals",
-      description: "Check out our latest products",
-      image: "/placeholder.svg?height=400&width=800",
-      color: "bg-purple-400",
+      name: "Services",
+      subcategories: [
+        "Property",
+        "Insurance",
+        "Shipping",
+        "Real Estate",
+        "Finance & Mortgage",
+        "Photo, Video & Art",
+      ],
+    },
+    {
+      name: "Retail",
+      subcategories: [
+        "Tools",
+        "Collectables",
+        "Jewellery",
+        "Apparel",
+        "Electronics & Appliances",
+        "Furniture & Homeware",
+      ],
+    },
+    {
+      name: "Beauty",
+      subcategories: ["Hairdresser", "Barber", "Beautician", "Tattoo", "Salon"],
     },
   ];
 
-  // Auto-advance carousel
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, [slides.length]);
-
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
   };
 
   return (
-    <div className="container mx-auto p-6">
+    <div className="min-h-screen bg-white">
       <Header />
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-4">
-        {/* Categories sidebar */}
-        <div className="rounded-lg bg-white p-4 shadow">
-          <ul className="space-y-3">
-            {categories.map((category, index) => (
-              <li key={index}>
-                <button className="flex w-full items-center rounded-md p-2 transition-colors hover:bg-gray-50">
-                  <category.icon className="mr-3 h-5 w-5 text-gray-600" />
-                  <span className="font-medium">{category.name}</span>
-                </button>
-              </li>
-            ))}
-          </ul>
+      {/* Tombol Navigasi Mobile */}
+      <MobileMenuButton
+        mobileMenuOpen={mobileMenuOpen}
+        toggleMobileMenu={toggleMobileMenu}
+      />
+      {/* Menu Navigasi Mobile */}
+      <MobileMenu
+        mobileMenuOpen={mobileMenuOpen}
+        toggleMobileMenu={toggleMobileMenu}
+      />
+      {/* Desktop Navigation */}
+      <div className="hidden bg-orange-600 py-4 text-white lg:block">
+        <div className="container mx-auto flex justify-center space-x-6 overflow-x-auto">
+          <Link
+            href="/user"
+            className="px-3 py-1 font-medium hover:border-b-2 hover:border-white"
+          >
+            DASHBOARD
+          </Link>
+          <Link
+            href="/partners"
+            className="px-3 py-1 font-medium hover:border-b-2 hover:border-white"
+          >
+            PARTNER SEARCH
+          </Link>
+          <Link
+            href="/partners-affiliate"
+            className="px-3 py-1 font-medium hover:border-b-2 hover:border-white"
+          >
+            AFFILIATE PARTNERS
+          </Link>
+          <Link
+            href="/store-search"
+            className="px-3 py-1 font-medium hover:border-b-2 hover:border-white"
+          >
+            STORE SEARCH
+          </Link>
+          <Link
+            href="/categories"
+            className="border-b-2 border-white px-3 py-1 font-medium"
+          >
+            CATEGORIES
+          </Link>
         </div>
       </div>
-      <AllCategories />
+      <div className="container mx-auto px-4 py-8">
+        {/* Featured Categories Section */}
+        <section>
+          <h2 className="mb-6 text-xl font-bold text-gray-800">
+            Featured Categories
+          </h2>
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+            {featuredCategories.map((category, index) => (
+              <Link
+                key={index}
+                href={category.href}
+                className="flex flex-col items-center justify-center rounded-md border border-gray-200 p-6 text-center transition hover:border-orange-500"
+              >
+                <div className="mb-3 text-gray-700">{category.icon}</div>
+                <span className="text-sm font-medium text-gray-800">
+                  {category.name}
+                </span>
+              </Link>
+            ))}
+          </div>
+        </section>
+        <AllCategories />
+        <MobileBottomNavigationBar />
+      </div>
       <FooterUser />
     </div>
   );
