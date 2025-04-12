@@ -83,13 +83,13 @@ export default function Dashboard() {
             PARTNER SEARCH
           </Link>
           <Link
-            href="/partners-affiliate"
+            href="/partners/affiliate"
             className="px-3 py-1 font-medium hover:border-b-2 hover:border-white"
           >
             AFFILIATE PARTNERS
           </Link>
           <Link
-            href="/store-search"
+            href="/stores"
             className="px-3 py-1 font-medium hover:border-b-2 hover:border-white"
           >
             STORE SEARCH

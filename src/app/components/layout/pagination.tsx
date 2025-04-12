@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 interface PaginationProps {
@@ -13,10 +14,24 @@ export default function Pagination({
   totalPages,
   onPageChange,
 }: PaginationProps) {
+  const [windowWidth, setWindowWidth] = useState(0);
+
+  // Set windowWidth hanya di sisi klien
+  useEffect(() => {
+    setWindowWidth(window.innerWidth);
+
+    // Optional: Update windowWidth saat ukuran jendela berubah
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup listener saat komponen di-unmount
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   // Generate page numbers to display
   const getPageNumbers = () => {
     const pages = [];
-    const maxPagesToShow = window.innerWidth < 640 ? 3 : 5;
+    const maxPagesToShow = windowWidth < 640 ? 3 : 5;
 
     // Always show first page
     if (currentPage > 2) {

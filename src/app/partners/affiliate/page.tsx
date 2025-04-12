@@ -16,8 +16,8 @@ export default function AffiliatePage() {
   const [isCopied, setIsCopied] = useState(false);
   const [page, setPage] = useState(1);
   const [showFilters, setShowFilters] = useState(false);
-  const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   const openModal = (partner: Partner) => {
     setSelectedPartner(partner);
     setShowModal(true);
@@ -39,7 +39,7 @@ export default function AffiliatePage() {
   };
 
   const toggleMobileMenu = () => {
-    setShowMobileMenu(!showMobileMenu);
+    setMobileMenuOpen(!mobileMenuOpen);
   };
 
   return (
@@ -80,7 +80,7 @@ export default function AffiliatePage() {
             AFFILIATE PARTNERS
           </Link>
           <Link
-            href="/store-search"
+            href="/stores"
             className="px-3 py-1 font-medium hover:border-b-2 hover:border-white"
           >
             STORE SEARCH
