@@ -1,106 +1,88 @@
-import React from "react";
+"use client";
+
+import { ChevronLeft, ChevronRight } from "lucide-react";
+
 interface PaginationProps {
   currentPage: number;
   totalPages: number;
-  onPageChange: (pageNumber: number) => void;
+  onPageChange: (page: number) => void;
 }
-const Pagination = ({
+
+export default function Pagination({
   currentPage,
   totalPages,
   onPageChange,
-}: PaginationProps) => {
-  const getPages = () => {
+}: PaginationProps) {
+  // Generate page numbers to display
+  const getPageNumbers = () => {
     const pages = [];
+    const maxPagesToShow = window.innerWidth < 640 ? 3 : 5;
 
-    if (totalPages <= 10) {
-      for (let i = 1; i <= totalPages; i++) {
-        pages.push(i);
+    // Always show first page
+    if (currentPage > 2) {
+      pages.push(1);
+      // Add ellipsis if needed
+      if (currentPage > 3) {
+        pages.push("...");
       }
-    } else {
-      if (currentPage <= 6) {
-        pages.push(...[1, 2, 3, 4, 5, 6, 7, "...", totalPages - 1, totalPages]);
-      } else if (currentPage >= totalPages - 5) {
-        pages.push(
-          ...[
-            1,
-            2,
-            "...",
-            totalPages - 6,
-            totalPages - 5,
-            totalPages - 4,
-            totalPages - 3,
-            totalPages - 2,
-            totalPages - 1,
-            totalPages,
-          ],
-        );
-      } else {
-        pages.push(
-          1,
-          2,
-          "...",
-          currentPage - 1,
-          currentPage,
-          currentPage + 1,
-          "...",
-          totalPages - 1,
-          totalPages,
-        );
+    }
+
+    // Calculate range around current page
+    const start = Math.max(2, currentPage - 1);
+    const end = Math.min(totalPages - 1, currentPage + 1);
+
+    // Add pages around current page
+    for (let i = start; i <= end; i++) {
+      pages.push(i);
+    }
+
+    // Add ellipsis and last page if needed
+    if (currentPage < totalPages - 1) {
+      if (currentPage < totalPages - 2) {
+        pages.push("...");
       }
+      pages.push(totalPages);
     }
 
     return pages;
   };
 
   return (
-    <div className="flex flex-col items-center space-y-2">
-      <div className="text-sm text-gray-700">
-        Showing {(currentPage - 1) * 30 + 1} to{" "}
-        {Math.min(currentPage * 30, 1736)} of 1736 results
-      </div>
+    <div className="flex flex-wrap items-center justify-center gap-1 sm:gap-2">
+      {/* Previous button */}
+      <button
+        onClick={() => currentPage > 1 && onPageChange(currentPage - 1)}
+        disabled={currentPage === 1}
+        className="flex h-8 w-8 items-center justify-center rounded-md border border-gray-300 bg-white text-gray-500 disabled:opacity-50 sm:h-10 sm:w-10"
+      >
+        <ChevronLeft className="h-4 w-4" />
+      </button>
 
-      <div className="flex items-center gap-1">
-        {/* Prev Button */}
+      {/* Page numbers */}
+      {getPageNumbers().map((page, index) => (
         <button
-          onClick={() => onPageChange(currentPage - 1)}
-          disabled={currentPage === 1}
-          className="rounded border px-3 py-1 text-sm hover:bg-gray-100 disabled:opacity-50"
+          key={index}
+          onClick={() => typeof page === "number" && onPageChange(page)}
+          className={`flex h-8 w-8 items-center justify-center rounded-md border text-sm sm:h-10 sm:w-10 ${
+            page === currentPage
+              ? "border-orange-500 bg-orange-500 text-white"
+              : "border-gray-300 bg-white text-gray-700 hover:bg-gray-50"
+          } ${typeof page !== "number" ? "cursor-default" : ""}`}
         >
-          « Previous
+          {page}
         </button>
+      ))}
 
-        {/* Page Numbers */}
-        {getPages().map((page, index) =>
-          page === "..." ? (
-            <span key={index} className="px-2 py-1 text-gray-500">
-              ...
-            </span>
-          ) : (
-            <button
-              key={index}
-              onClick={() => typeof page === "number" && onPageChange(page)}
-              className={`rounded border px-3 py-1 text-sm ${
-                page === currentPage
-                  ? "bg-blue-600 text-white"
-                  : "text-blue-600 hover:bg-blue-100"
-              }`}
-            >
-              {page}
-            </button>
-          ),
-        )}
-
-        {/* Next Button */}
-        <button
-          onClick={() => onPageChange(currentPage + 1)}
-          disabled={currentPage === totalPages}
-          className="rounded border px-3 py-1 text-sm hover:bg-gray-100 disabled:opacity-50"
-        >
-          Next »
-        </button>
-      </div>
+      {/* Next button */}
+      <button
+        onClick={() =>
+          currentPage < totalPages && onPageChange(currentPage + 1)
+        }
+        disabled={currentPage === totalPages}
+        className="flex h-8 w-8 items-center justify-center rounded-md border border-gray-300 bg-white text-gray-500 disabled:opacity-50 sm:h-10 sm:w-10"
+      >
+        <ChevronRight className="h-4 w-4" />
+      </button>
     </div>
   );
-};
-
-export default Pagination;
+}
