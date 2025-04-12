@@ -4,11 +4,15 @@ import Header from "../components/layout/header";
 import { partners, type Partner } from "../../lib/partners";
 import { useState } from "react";
 import { Globe, Instagram, X, Facebook } from "lucide-react";
+import FilterPartners from "../components/ui/filter-partners";
+import FooterUser from "../components/ui/footer-user";
+import Pagination from "../components/layout/pagination";
 
 export default function Partners() {
   const [selectedPartner, setSelectedPartner] = useState<Partner | null>(null);
   const [showModal, setShowModal] = useState(false);
   const [isCopied, setIsCopied] = useState(false);
+  const [page, setPage] = useState(1);
 
   const openModal = (partner: Partner) => {
     setSelectedPartner(partner);
@@ -66,27 +70,7 @@ export default function Partners() {
 
       {/* Filters Section */}
       <div className="container mx-auto mt-8 flex space-x-8">
-        <div className="w-1/4">
-          <h3 className="text-lg font-semibold">States</h3>
-          <select className="mt-2 w-full rounded border border-gray-300 p-2">
-            <option>Select State</option>
-            <option>AUS WIDE</option>
-            <option>ACT</option>
-          </select>
-
-          <h3 className="mt-6 text-lg font-semibold">Categories</h3>
-          <select className="mt-2 w-full rounded border border-gray-300 p-2">
-            <option>Select Category</option>
-            <option>Apparel</option>
-            <option>Automotive</option>
-          </select>
-
-          <h3 className="mt-6 text-lg font-semibold">Tags</h3>
-          <select className="mt-2 w-full rounded border border-gray-300 p-2">
-            <option>Select Tag</option>
-            {/* Add more options here */}
-          </select>
-        </div>
+        <FilterPartners />
 
         {/* Results Section */}
         <div className="w-full">
@@ -113,7 +97,7 @@ export default function Partners() {
                   <img
                     src={partner.logo}
                     alt={partner.name}
-                    className="h-16 w-16"
+                    className="w-25 h-20 border border-gray-200 object-cover shadow-sm"
                   />
                 </div>
 
@@ -324,6 +308,14 @@ export default function Partners() {
           </div>
         </div>
       </div>
+      <br />
+      <Pagination
+        currentPage={page}
+        totalPages={58} // misal dari 1736 / 30
+        onPageChange={(newPage) => setPage(newPage)}
+      />
+      <br />
+      <FooterUser />
     </div>
   );
 }
