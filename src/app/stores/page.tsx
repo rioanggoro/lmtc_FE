@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import Header from "../components/layout/header";
 import FooterUser from "../components/ui/footer-user";
@@ -71,78 +71,80 @@ export default function StoresPage() {
   };
 
   return (
-    <div className="flex min-h-screen flex-col">
-      <Header />
+    <Suspense fallback={<div>Loading...</div>}>
+      <div className="flex min-h-screen flex-col">
+        <Header />
 
-      {/* Tombol Navigasi Mobile */}
-      <MobileMenuButton
-        mobileMenuOpen={mobileMenuOpen}
-        toggleMobileMenu={toggleMobileMenu}
-      />
+        {/* Tombol Navigasi Mobile */}
+        <MobileMenuButton
+          mobileMenuOpen={mobileMenuOpen}
+          toggleMobileMenu={toggleMobileMenu}
+        />
 
-      {/* Menu Navigasi Mobile */}
-      <MobileMenu
-        mobileMenuOpen={mobileMenuOpen}
-        toggleMobileMenu={toggleMobileMenu}
-      />
+        {/* Menu Navigasi Mobile */}
+        <MobileMenu
+          mobileMenuOpen={mobileMenuOpen}
+          toggleMobileMenu={toggleMobileMenu}
+        />
 
-      <div className="hidden bg-orange-600 py-4 text-white lg:block">
-        <div className="container mx-auto flex justify-center space-x-6 overflow-x-auto">
-          <Link
-            href="/user"
-            className="px-3 py-1 font-medium hover:border-b-2 hover:border-white"
-          >
-            DASHBOARD
-          </Link>
-          <Link
-            href="/partners"
-            className="px-3 py-1 font-medium hover:border-b-2 hover:border-white"
-          >
-            PARTNER SEARCH
-          </Link>
-          <Link
-            href="/partners/affiliate"
-            className="px-3 py-1 font-medium hover:border-b-2 hover:border-white"
-          >
-            AFFILIATE PARTNERS
-          </Link>
-          <Link
-            href="/stores"
-            className="border-b-2 border-white px-3 py-1 font-medium"
-          >
-            STORE SEARCH
-          </Link>
-          <Link
-            href="/categories"
-            className="px-3 py-1 font-medium hover:border-b-2 hover:border-white"
-          >
-            CATEGORIES
-          </Link>
+        <div className="hidden bg-orange-600 py-4 text-white lg:block">
+          <div className="container mx-auto flex justify-center space-x-6 overflow-x-auto">
+            <Link
+              href="/user"
+              className="px-3 py-1 font-medium hover:border-b-2 hover:border-white"
+            >
+              DASHBOARD
+            </Link>
+            <Link
+              href="/partners"
+              className="px-3 py-1 font-medium hover:border-b-2 hover:border-white"
+            >
+              PARTNER SEARCH
+            </Link>
+            <Link
+              href="/partners/affiliate"
+              className="px-3 py-1 font-medium hover:border-b-2 hover:border-white"
+            >
+              AFFILIATE PARTNERS
+            </Link>
+            <Link
+              href="/stores"
+              className="border-b-2 border-white px-3 py-1 font-medium"
+            >
+              STORE SEARCH
+            </Link>
+            <Link
+              href="/categories"
+              className="px-3 py-1 font-medium hover:border-b-2 hover:border-white"
+            >
+              CATEGORIES
+            </Link>
+          </div>
         </div>
+
+        <main className="container mx-auto flex-1 px-4 py-8">
+          {/* Alphabet Filter */}
+          <AlphabetFilter activeLetter={activeLetter} />
+
+          {/* Current Letter Heading */}
+          <h2 className="mb-8 text-3xl font-bold">{activeLetter}</h2>
+
+          {/* Stores Grid */}
+          <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+            {filteredStores.length > 0 ? (
+              filteredStores.map((store) => (
+                <StoreCard key={store.id} store={store} />
+              ))
+            ) : (
+              <p className="col-span-full text-center text-gray-500">
+                No stores found starting with {activeLetter}
+              </p>
+            )}
+          </div>
+        </main>
+
+        <FooterUser />
       </div>
-
-      <main className="container mx-auto flex-1 px-4 py-8">
-        {/* Alphabet Filter */}
-        <AlphabetFilter activeLetter={activeLetter} />
-
-        {/* Current Letter Heading */}
-        <h2 className="mb-8 text-3xl font-bold">{activeLetter}</h2>
-
-        {/* Stores Grid */}
-        <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-          {filteredStores.length > 0 ? (
-            filteredStores.map((store) => (
-              <StoreCard key={store.id} store={store} />
-            ))
-          ) : (
-            <p className="col-span-full text-center text-gray-500">
-              No stores found starting with {activeLetter}
-            </p>
-          )}
-        </div>
-      </main>
-
-      <FooterUser />
-    </div>
+    </Suspense>
   );
 }
