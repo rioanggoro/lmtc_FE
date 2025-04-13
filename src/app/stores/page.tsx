@@ -29,12 +29,10 @@ export default function StoresPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    // Get letter from URL or default to "A"
     const letterParam = searchParams.get("letter");
     const letter = letterParam || "A";
     setActiveLetter(letter);
 
-    // Filter stores by letter
     const filtered = stores.filter((store) => {
       const firstLetter = store.name.charAt(0).toUpperCase();
       if (letter === "0-9") {
