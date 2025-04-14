@@ -8,72 +8,86 @@ import FooterUser from "../components/ui/footer-user";
 import MobileMenuButton from "../components/layout/MobileMenuButton";
 import MobileMenu from "../components/layout/MobileMenuButton";
 import MobileBottomNavigationBar from "../components/layout/MobileBottomNavigationBar";
-import GiveawayCard from "../components/ui/giveaway-card";
+import WinnerCard from "../components/ui/winner-card";
 
-const majordrawwinners = [
+const majorDrawWinners = [
+  {
+    id: "quintrex-trident",
+    title: "Quintrex Trident 690 14/04/25",
+    date: "14/04/25",
+    image: "/logos/aus-merch.png",
+    winners: [
+      { place: "1st", name: "Craig M", prize: "Prize Quintrex Trident 690" },
+      { place: "2nd", name: "Stefanie M", prize: "Prize $2500 Credit" },
+      { place: "3rd", name: "Kim B", prize: "Prize $1000 Credit" },
+    ],
+    showWinBadge: true,
+  },
   {
     id: "100k-cash",
-    title: "$100K CASH",
-    image: "/logos/bestdeals.jpg",
-    status: "Closed" as const,
-    dateText: "Sunday the 13th of April at 8:30PM AEST",
-    tbd: true,
+    title: "$100,000 13/04/2025",
+    date: "13/04/2025",
+    image: "/logos/aus-merch.png",
+    winners: [
+      { place: "1st", name: "Ralph M", prize: "Prize $100,000" },
+      { place: "2nd", name: "Jonathan M", prize: "Prize $2500 Credit" },
+      { place: "3rd", name: "Damien S", prize: "Prize $1000 Credit" },
+    ],
   },
   {
-    id: "shelby-f150",
-    title: "Shelby F150",
-    image: "/logos/bestdeals.jpg",
-    status: "Early Bird" as const,
-    dateText: "Thursday the 17th of April at 8:30PM AEST",
-    tbd: true,
+    id: "5-winners-100k",
+    title: "5 Winners $100K Each 11/04/25",
+    date: "11/04/25",
+    image: "/logos/aus-merch.png",
+    winners: [
+      { place: "Winner 1", name: "Scott M", prize: "$100,000" },
+      { place: "Winner 2", name: "Jono P", prize: "$100,000" },
+      { place: "Winner 3", name: "Jack M", prize: "$100,000" },
+      { place: "Winner 4", name: "RiRi W", prize: "$100,000" },
+      { place: "Winner 5", name: "Tina L", prize: "$100,000" },
+    ],
   },
   {
-    id: "r35-gtr",
-    title: "R35 GTR",
-    image: "/logos/bestdeals.jpg",
-    status: "Early Bird" as const,
-    dateText: "Thursday the 24th of April at 8:30PM AEST",
-    tbd: true,
+    id: "mates-rates",
+    title: "Mates Rates — Access Discounts",
+    date: "",
+    image: "/logos/aus-merch.png",
+    winners: [],
+    isPromo: true,
   },
   {
-    id: "quintrex",
-    title: "Quintrex",
-    image: "/logos/bestdeals.jpg",
-    status: "Early Bird" as const,
-    dateText: "Monday the 14th of April at 8:30 PM AEST",
-    tbd: true,
+    id: "vf-gts",
+    title: "VF GTS 8/04/25",
+    date: "8/04/25",
+    image: "/logos/aus-merch.png",
+    winners: [{ place: "1st", name: "Halim F", prize: "Prize VF GTS" }],
   },
   {
-    id: "monaro-gts",
-    title: "Monaro GTS",
-    image: "/logos/bestdeals.jpg",
-    status: "Early Bird" as const,
-    dateText: "Sunday 4th of May at 4:00PM AEST",
-    tbd: true,
-  },
-  {
-    id: "hsv-gts",
-    title: "HSV GTS",
-    image: "/logos/bestdeals.jpg",
-    status: "Live" as const,
-    dateText: "Tuesday the 29th of April at 8:30PM AEDT",
-    tbd: true,
+    id: "porsche-gt3rs",
+    title: "Porsche GT3RS or $600K 3/04/25",
+    date: "3/04/25",
+    image: "/logos/aus-merch.png",
+    winners: [
+      { place: "1st", name: "Keesie", prize: "Prize Porsche GT3RS or $600K" },
+    ],
+    showWinBadge: true,
   },
   {
     id: "1-million-cash",
-    title: "$1,000,000 Cash",
-    image: "/logos/bestdeals.jpg",
-    status: "Early Bird" as const,
-    dateText: "Wednesday the 30th of April at 8:30PM AEDT",
-    tbd: true,
+    title: "$1 Million Cash 30/03/25",
+    date: "30/03/25",
+    image: "/logos/aus-merch.png",
+    winners: [
+      { place: "1st", name: "Zarii O", prize: "Prize $1 Million Cash" },
+    ],
+    showWinBadge: true,
   },
   {
-    id: "porsche-taycan",
-    title: "Porsche Taycan Turbo",
-    image: "/logos/bestdeals.jpg",
-    status: "Not Yet Open" as const,
-    dateText: "TBD",
-    tbd: true,
+    id: "ford-f150-raptor",
+    title: "Ford F150 Raptor + Lotus Caravan 27/03/2025",
+    date: "27/03/2025",
+    image: "/logos/aus-merch.png",
+    winners: [],
   },
 ];
 
@@ -105,7 +119,7 @@ export default function MajorDrawWinnersPage() {
             <Home className="mr-1 h-4 w-4" />
           </Link>
           <span>›</span>
-          <span className="text-gray-500">Major Draw Winners</span>
+          <span className="text-gray-500">Major Draws Winner</span>
         </div>
       </div>
 
@@ -115,17 +129,125 @@ export default function MajorDrawWinnersPage() {
           <span className="text-blue-500">LATEST</span> MAJOR DRAWS WINNER
         </h1>
 
-        {/* Giveaways Grid */}
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {majordrawwinners.map((majordraws) => (
-            <GiveawayCard
-              key={majordraws.id}
-              id={majordraws.id}
-              title={majordraws.title}
-              image={majordraws.image}
-              status={majordraws.status}
-              dateText={majordraws.dateText}
-              tbd={majordraws.tbd}
+        {/* Special Discounts Card */}
+        <div className="mb-8 hidden lg:block">
+          <div className="grid grid-cols-4 gap-6">
+            <div className="col-span-3 grid grid-cols-3 gap-6">
+              {majorDrawWinners.slice(0, 3).map((winner) => (
+                <WinnerCard
+                  key={winner.id}
+                  id={winner.id}
+                  title={winner.title}
+                  date={winner.date}
+                  image={winner.image}
+                  winners={winner.winners}
+                />
+              ))}
+            </div>
+            <div className="col-span-1">
+              <div className="flex h-full flex-col items-center justify-center rounded-lg bg-white p-6 shadow">
+                <div className="mb-4 h-16 w-16 rounded-full bg-gray-100 p-4">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    className="h-full w-full text-blue-500"
+                  >
+                    <path
+                      d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    ></path>
+                    <path
+                      d="M3.27 6.96L12 12.01l8.73-5.05M12 22.08V12"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    ></path>
+                  </svg>
+                </div>
+                <h3 className="mb-2 text-center text-lg font-bold">
+                  Mates Rates — Access Discounts
+                </h3>
+                <p className="mb-6 text-center text-sm text-gray-600">
+                  from over 1000 stores!
+                </p>
+                <button className="w-full rounded-md bg-blue-500 px-4 py-2 font-medium text-white hover:bg-blue-600">
+                  Get Discounts
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile View for First 4 Cards */}
+        <div className="mb-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:hidden">
+          {majorDrawWinners.slice(0, 4).map((winner) => {
+            if (winner.isPromo) {
+              return (
+                <div
+                  key={winner.id}
+                  className="flex flex-col items-center justify-center rounded-lg bg-white p-6 shadow"
+                >
+                  <div className="mb-4 h-16 w-16 rounded-full bg-gray-100 p-4">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      className="h-full w-full text-blue-500"
+                    >
+                      <path
+                        d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      ></path>
+                      <path
+                        d="M3.27 6.96L12 12.01l8.73-5.05M12 22.08V12"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      ></path>
+                    </svg>
+                  </div>
+                  <h3 className="mb-2 text-center text-lg font-bold">
+                    Mates Rates — Access Discounts
+                  </h3>
+                  <p className="mb-6 text-center text-sm text-gray-600">
+                    from over 1000 stores!
+                  </p>
+                  <button className="w-full rounded-md bg-blue-500 px-4 py-2 font-medium text-white hover:bg-blue-600">
+                    Get Discounts
+                  </button>
+                </div>
+              );
+            }
+            return (
+              <WinnerCard
+                key={winner.id}
+                id={winner.id}
+                title={winner.title}
+                date={winner.date}
+                image={winner.image}
+                winners={winner.winners}
+              />
+            );
+          })}
+        </div>
+
+        {/* Remaining Winners */}
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {majorDrawWinners.slice(4).map((winner) => (
+            <WinnerCard
+              key={winner.id}
+              id={winner.id}
+              title={winner.title}
+              date={winner.date}
+              image={winner.image}
+              winners={winner.winners}
             />
           ))}
         </div>
