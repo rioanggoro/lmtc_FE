@@ -78,7 +78,7 @@ export default function Header() {
               <DropdownMenuContent>
                 <DropdownMenuItem>
                   <Link
-                    href="/giveaways/current"
+                    href="/giveaways"
                     className="w-full text-secondary-color"
                   >
                     Major Draws

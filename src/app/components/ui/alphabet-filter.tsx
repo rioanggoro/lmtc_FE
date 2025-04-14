@@ -42,9 +42,9 @@ export default function AlphabetFilter({ activeLetter }: AlphabetFilterProps) {
         <Link
           key={letter}
           href={`/stores?letter=${letter}`}
-          className={`px-2 py-1 ${
+          className={`px-3 py-1 text-sm md:text-base lg:text-lg ${
             activeLetter === letter
-              ? "font-bold text-orange-600"
+              ? "font-normal text-orange-600"
               : "text-gray-700 hover:text-orange-500"
           }`}
         >

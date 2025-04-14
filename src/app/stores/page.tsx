@@ -9,6 +9,7 @@ import MobileMenu from "../components/ui/MobileMenuButton";
 import StoreCard from "../components/ui/store-card";
 import AlphabetFilter from "../components/ui/alphabet-filter";
 import { stores, type Stores } from "../../lib/stores";
+import MobileBottomNavigationBar from "../components/ui/MobileBottomNavigationBar";
 
 // Define the Partner type
 interface Partner {
@@ -119,7 +120,6 @@ export default function StoresPage() {
             </Link>
           </div>
         </div>
-
         <main className="container mx-auto flex-1 px-4 py-8">
           {/* Alphabet Filter */}
           <AlphabetFilter activeLetter={activeLetter} />
@@ -140,8 +140,8 @@ export default function StoresPage() {
             )}
           </div>
         </main>
-
         <FooterUser />
+        <MobileBottomNavigationBar />
       </div>
     </Suspense>
   );
