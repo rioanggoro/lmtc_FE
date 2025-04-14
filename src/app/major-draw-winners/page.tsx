@@ -10,7 +10,7 @@ import MobileMenu from "../components/layout/MobileMenuButton";
 import MobileBottomNavigationBar from "../components/layout/MobileBottomNavigationBar";
 import GiveawayCard from "../components/ui/giveaway-card";
 
-const giveaways = [
+const majordrawwinners = [
   {
     id: "100k-cash",
     title: "$100K CASH",
@@ -77,7 +77,7 @@ const giveaways = [
   },
 ];
 
-export default function GiveawaysPage() {
+export default function MajorDrawWinnersPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const toggleMobileMenu = () => {
@@ -117,15 +117,15 @@ export default function GiveawaysPage() {
 
         {/* Giveaways Grid */}
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {giveaways.map((giveaway) => (
+          {majordrawwinners.map((majordraws) => (
             <GiveawayCard
-              key={giveaway.id}
-              id={giveaway.id}
-              title={giveaway.title}
-              image={giveaway.image}
-              status={giveaway.status}
-              dateText={giveaway.dateText}
-              tbd={giveaway.tbd}
+              key={majordraws.id}
+              id={majordraws.id}
+              title={majordraws.title}
+              image={majordraws.image}
+              status={majordraws.status}
+              dateText={majordraws.dateText}
+              tbd={majordraws.tbd}
             />
           ))}
         </div>

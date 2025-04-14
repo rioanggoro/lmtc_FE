@@ -7,8 +7,8 @@ import { Globe, Instagram, X, Facebook, Menu, Filter } from "lucide-react";
 import FilterPartners from "../../components/ui/filter-partners";
 import FooterUser from "../../components/ui/footer-user";
 import Pagination from "../../components/layout/pagination";
-import MobileMenuButton from "../../components/ui/MobileMenuButton";
-import MobileMenu from "../../components/ui/MobileMenuButton";
+import MobileMenuButton from "../../components/layout/MobileMenuButton";
+import MobileMenu from "../../components/layout/MobileMenuButton";
 
 export default function AffiliatePage() {
   const [selectedPartner, setSelectedPartner] = useState<Partner | null>(null);

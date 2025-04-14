@@ -86,7 +86,7 @@ export default function Header() {
                 </DropdownMenuItem>
                 <DropdownMenuItem>
                   <Link
-                    href="/giveaways/past"
+                    href="/major-draw-winners"
                     className="w-full text-secondary-color"
                   >
                     Major Draws Winners

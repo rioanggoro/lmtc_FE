@@ -4,12 +4,12 @@ import { Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import Header from "../components/layout/header";
 import FooterUser from "../components/ui/footer-user";
-import MobileMenuButton from "../components/ui/MobileMenuButton";
-import MobileMenu from "../components/ui/MobileMenuButton";
+import MobileMenuButton from "../components/layout/MobileMenuButton";
+import MobileMenu from "../components/layout/MobileMenuButton";
 import StoreCard from "../components/ui/store-card";
 import AlphabetFilter from "../components/ui/alphabet-filter";
 import { stores, type Stores } from "../../lib/stores";
-import MobileBottomNavigationBar from "../components/ui/MobileBottomNavigationBar";
+import MobileBottomNavigationBar from "../components/layout/MobileBottomNavigationBar";
 
 // Define the Partner type
 interface Partner {

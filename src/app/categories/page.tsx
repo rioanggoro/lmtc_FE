@@ -14,10 +14,10 @@ import {
   Dumbbell,
   PawPrint,
 } from "lucide-react";
-import MobileMenuButton from "../components/ui/MobileMenuButton";
-import MobileMenu from "../components/ui/MobileMenuButton"; // Ensure you have this component imported
+import MobileMenuButton from "../components/layout/MobileMenuButton";
+import MobileMenu from "../components/layout/MobileMenuButton"; // Ensure you have this component imported
 import AllCategories from "../components/ui/all-categories";
-import MobileBottomNavigationBar from "../components/ui/MobileBottomNavigationBar";
+import MobileBottomNavigationBar from "../components/layout/MobileBottomNavigationBar";
 
 export default function Categories() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -130,13 +130,13 @@ export default function Categories() {
     },
   ];
 
-/*************  ✨ Windsurf Command ⭐  *************/
+  /*************  ✨ Windsurf Command ⭐  *************/
   /**
    * Toggles the mobile menu's open state.
    *
    * @return {void}
    */
-/*******  104d1938-d82a-4ac6-8a96-3aa287122449  *******/
+  /*******  104d1938-d82a-4ac6-8a96-3aa287122449  *******/
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };

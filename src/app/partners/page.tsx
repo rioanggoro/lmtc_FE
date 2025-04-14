@@ -7,9 +7,9 @@ import { Globe, Instagram, X, Facebook, Filter } from "lucide-react";
 import FilterPartners from "../components/ui/filter-partners";
 import FooterUser from "../components/ui/footer-user";
 import Pagination from "../components/layout/pagination";
-import MobileMenuButton from "../components/ui/MobileMenuButton";
-import MobileMenu from "../components/ui/MobileMenuButton";
-import MobileBottomNavigationBar from "../components/ui/MobileBottomNavigationBar";
+import MobileMenuButton from "../components/layout/MobileMenuButton";
+import MobileMenu from "../components/layout/MobileMenuButton";
+import MobileBottomNavigationBar from "../components/layout/MobileBottomNavigationBar";
 
 export default function Partners() {
   const [selectedPartner, setSelectedPartner] = useState<Partner | null>(null);

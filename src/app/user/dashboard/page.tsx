@@ -13,9 +13,9 @@ import FeaturedStores from "../../components/ui/featured-stores";
 import AllCategories from "../../components/ui/all-categories";
 import FooterUser from "../../components/ui/footer-user";
 import { useState } from "react";
-import MobileMenu from "../../components/ui/MobileMenuButton";
-import MobileMenuButton from "../../components/ui/MobileMenuButton";
-import MobileBottomNavigationBar from "../../components/ui/MobileBottomNavigationBar";
+import MobileMenu from "../../components/layout/MobileMenuButton";
+import MobileMenuButton from "../../components/layout/MobileMenuButton";
+import MobileBottomNavigationBar from "../../components/layout/MobileBottomNavigationBar";
 
 export default function Dashboard() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
