@@ -94,7 +94,7 @@ export default function Header() {
                 </DropdownMenuItem>
                 <DropdownMenuItem>
                   <Link
-                    href="/giveaways/winners"
+                    href="/my-entries"
                     className="w-full text-secondary-color"
                   >
                     My Entries

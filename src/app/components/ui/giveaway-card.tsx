@@ -22,7 +22,7 @@ export default function GiveawayCard({
   const getStatusColor = () => {
     switch (status) {
       case "Early Bird":
-        return "text-blue-600";
+        return "text-orange-600";
       case "Closed":
         return "text-gray-500";
       case "Live":

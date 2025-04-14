@@ -112,7 +112,7 @@ export default function GiveawaysPage() {
       {/* Main Content */}
       <div className="container mx-auto px-4 pb-12">
         <h1 className="mb-8 text-3xl font-bold">
-          <span className="text-blue-500">LIVE</span> & UPCOMING GIVEAWAYS
+          <span className="text-orange-500">LIVE</span> & UPCOMING GIVEAWAYS
         </h1>
 
         {/* Giveaways Grid */}
@@ -121,7 +121,7 @@ export default function GiveawaysPage() {
             <GiveawayCard
               key={giveaway.id}
               id={giveaway.id}
-              title ={giveaway.title}
+              title={giveaway.title}
               image={giveaway.image}
               status={giveaway.status}
               dateText={giveaway.dateText}

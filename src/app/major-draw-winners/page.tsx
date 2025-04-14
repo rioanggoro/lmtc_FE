@@ -126,7 +126,7 @@ export default function MajorDrawWinnersPage() {
       {/* Main Content */}
       <div className="container mx-auto px-4 pb-12">
         <h1 className="mb-8 text-3xl font-bold">
-          <span className="text-blue-500">LATEST</span> MAJOR DRAWS WINNER
+          <span className="text-orange-500">LATEST</span> MAJOR DRAWS WINNER
         </h1>
 
         {/* Special Discounts Card */}
@@ -150,7 +150,7 @@ export default function MajorDrawWinnersPage() {
                   <svg
                     viewBox="0 0 24 24"
                     fill="none"
-                    className="h-full w-full text-blue-500"
+                    className="h-full w-full text-orange-500"
                   >
                     <path
                       d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"
@@ -174,7 +174,7 @@ export default function MajorDrawWinnersPage() {
                 <p className="mb-6 text-center text-sm text-gray-600">
                   from over 1000 stores!
                 </p>
-                <button className="w-full rounded-md bg-blue-500 px-4 py-2 font-medium text-white hover:bg-blue-600">
+                <button className="w-full rounded-md bg-orange-500 px-4 py-2 font-medium text-white hover:bg-orange-600">
                   Get Discounts
                 </button>
               </div>
@@ -195,7 +195,7 @@ export default function MajorDrawWinnersPage() {
                     <svg
                       viewBox="0 0 24 24"
                       fill="none"
-                      className="h-full w-full text-blue-500"
+                      className="h-full w-full text-orange-500"
                     >
                       <path
                         d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"
@@ -219,7 +219,7 @@ export default function MajorDrawWinnersPage() {
                   <p className="mb-6 text-center text-sm text-gray-600">
                     from over 1000 stores!
                   </p>
-                  <button className="w-full rounded-md bg-blue-500 px-4 py-2 font-medium text-white hover:bg-blue-600">
+                  <button className="w-full rounded-md bg-orange-500 px-4 py-2 font-medium text-white hover:bg-orange-600">
                     Get Discounts
                   </button>
                 </div>

@@ -42,11 +42,11 @@ export default function WinnerCard({
               <span
                 className={`mr-2 inline-block rounded-md px-2 py-0.5 text-xs font-bold text-white ${
                   winner.place === "1st"
-                    ? "bg-blue-500"
+                    ? "bg-orange-500"
                     : winner.place === "2nd"
-                      ? "bg-blue-400"
+                      ? "bg-orange-400"
                       : winner.place === "3rd"
-                        ? "bg-blue-300"
+                        ? "bg-orange-300"
                         : "bg-gray-500"
                 }`}
               >
