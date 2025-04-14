@@ -130,6 +130,13 @@ export default function Categories() {
     },
   ];
 
+/*************  ✨ Windsurf Command ⭐  *************/
+  /**
+   * Toggles the mobile menu's open state.
+   *
+   * @return {void}
+   */
+/*******  104d1938-d82a-4ac6-8a96-3aa287122449  *******/
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };

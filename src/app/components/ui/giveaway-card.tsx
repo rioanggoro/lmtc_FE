@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import WinBadge from "./win-badge";
 
 interface GiveawayCardProps {
   id: string;
@@ -9,7 +8,6 @@ interface GiveawayCardProps {
   status: "Early Bird" | "Closed" | "Live" | "Not Yet Open";
   dateText: string;
   tbd?: boolean;
-  showWinBadge?: boolean;
 }
 
 export default function GiveawayCard({
@@ -19,7 +17,6 @@ export default function GiveawayCard({
   status,
   dateText,
   tbd = false,
-  showWinBadge = true,
 }: GiveawayCardProps) {
   // Determine status color
   const getStatusColor = () => {
@@ -47,7 +44,6 @@ export default function GiveawayCard({
           className="object-cover transition-transform duration-300 hover:scale-105"
           unoptimized
         />
-        {showWinBadge && status !== "Closed" && <WinBadge />}
       </div>
       <div className="flex flex-col p-4">
         <h3 className="text-lg font-bold text-gray-800">{title}</h3>
