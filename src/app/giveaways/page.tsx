@@ -121,7 +121,7 @@ export default function GiveawaysPage() {
             <GiveawayCard
               key={giveaway.id}
               id={giveaway.id}
-              title={giveaway.title}
+              title ={giveaway.title}
               image={giveaway.image}
               status={giveaway.status}
               dateText={giveaway.dateText}

@@ -105,14 +105,14 @@ export default function MajorDrawWinnersPage() {
             <Home className="mr-1 h-4 w-4" />
           </Link>
           <span>›</span>
-          <span className="text-gray-500">LIVE & Upcoming Giveaways</span>
+          <span className="text-gray-500">Major Draw Winners</span>
         </div>
       </div>
 
       {/* Main Content */}
       <div className="container mx-auto px-4 pb-12">
         <h1 className="mb-8 text-3xl font-bold">
-          <span className="text-blue-500">LIVE</span> & UPCOMING GIVEAWAYS
+          <span className="text-blue-500">LATEST</span> MAJOR DRAWS WINNER
         </h1>
 
         {/* Giveaways Grid */}

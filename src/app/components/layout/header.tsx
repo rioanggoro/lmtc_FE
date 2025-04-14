@@ -37,7 +37,7 @@ export default function Header() {
         className={`py-3 transition-all duration-300 md:px-6 ${
           isScrolled
             ? "bg-white shadow-md"
-            : "bg-gradient-to-r from-amber-800 via-orange-500 to-orange-700" // Tambahkan warna tujuan agar gradasinya lebih kuat
+            : "bg-gradient-to-r from-amber-800 via-orange-500 to-orange-700"
         }`}
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between">
