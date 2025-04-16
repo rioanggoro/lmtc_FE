@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Link from "next/link";
-import { Phone, MapPin, Lock, LogOut, X } from "lucide-react"; // Pastikan untuk mengimpor semua ikon yang digunakan
+import { Phone, MapPin, Lock, LogOut, X } from "lucide-react";
 
 export default function MainContentProfile() {
   const [user, setUser] = useState({
@@ -18,6 +18,7 @@ export default function MainContentProfile() {
 
   const [showEditModal, setShowEditModal] = useState(false);
   const [formData, setFormData] = useState({ ...user });
+  const [showChangePasswordModal, setShowChangePasswordModal] = useState(false);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -31,6 +32,10 @@ export default function MainContentProfile() {
     e.preventDefault();
     setUser({ ...formData });
     setShowEditModal(false);
+  };
+
+  const handleCancel = () => {
+    setShowChangePasswordModal(false);
   };
 
   return (
@@ -152,7 +157,10 @@ export default function MainContentProfile() {
                       className="w-full rounded-md border border-gray-300 py-2 pl-10 pr-3"
                     />
                   </div>
-                  <button className="rounded-md border border-gray-300 bg-white px-4 py-2 font-medium text-gray-700 shadow-sm transition hover:bg-gray-50">
+                  <button
+                    onClick={() => setShowChangePasswordModal(true)}
+                    className="rounded-md border border-gray-300 bg-white px-4 py-2 font-medium text-gray-700 shadow-sm transition hover:bg-gray-50"
+                  >
                     Change
                   </button>
                 </div>
@@ -320,6 +328,86 @@ export default function MainContentProfile() {
                   <button
                     type="button"
                     onClick={() => setShowEditModal(false)}
+                    className="rounded-md bg-red-500 px-6 py-2 font-medium text-white transition hover:bg-red-600"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    type="submit"
+                    className="rounded-md bg-gray-100 px-6 py-2 font-medium text-gray-800 transition hover:bg-gray-200"
+                  >
+                    Submit
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Change Password Modal */}
+      {showChangePasswordModal && (
+        <div className="fixed bottom-4 right-4 z-50">
+          <div className="w-full max-w-lg overflow-hidden rounded-lg bg-white shadow-xl">
+            {/* Modal Header */}
+            <div className="flex items-center justify-between bg-orange-600 px-6 py-4 text-white">
+              <h3 className="text-lg font-semibold">Profile Details</h3>
+              <button
+                onClick={() => setShowChangePasswordModal(false)}
+                className="rounded-full p-1 hover:bg-white/20"
+              >
+                <X className="h-5 w-5" />
+              </button>
+            </div>
+
+            {/* Modal Body */}
+            <div className="p-6">
+              <form onSubmit={handleSubmit}>
+                <div className="space-y-4">
+                  {/* Name */}
+                  <div>
+                    <label
+                      htmlFor="name"
+                      className="mb-1 block text-sm font-medium"
+                    >
+                      Password: <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full rounded-md border border-gray-300 p-2"
+                    />
+                  </div>
+
+                  {/* Phone */}
+                  <div>
+                    <label
+                      htmlFor="phone"
+                      className="mb-1 block text-sm font-medium"
+                    >
+                      Confirm password: <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      id="phone"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full rounded-md border border-gray-300 p-2"
+                    />
+                  </div>
+                </div>
+
+                {/* Modal Footer */}
+                <div className="mt-6 flex justify-end gap-4">
+                  <button
+                    type="button"
+                    onClick={() => setShowChangePasswordModal(false)}
                     className="rounded-md bg-red-500 px-6 py-2 font-medium text-white transition hover:bg-red-600"
                   >
                     Cancel
