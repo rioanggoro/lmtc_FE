@@ -14,6 +14,8 @@ export default function MainContentProfile() {
     postcode: "",
     city: "Perth",
     state: "WA",
+    password: "",
+    confirmPassword: "",
   });
 
   const [showEditModal, setShowEditModal] = useState(false);
@@ -347,11 +349,11 @@ export default function MainContentProfile() {
 
       {/* Change Password Modal */}
       {showChangePasswordModal && (
-        <div className="fixed bottom-4 right-4 z-50">
-          <div className="w-full max-w-lg overflow-hidden rounded-lg bg-white shadow-xl">
+        <div className="fixed bottom-4 right-4 z-50 md:w-1/4">
+          <div className="w-full max-w-md rounded-lg bg-white shadow-xl">
             {/* Modal Header */}
-            <div className="flex items-center justify-between bg-orange-600 px-6 py-4 text-white">
-              <h3 className="text-lg font-semibold">Profile Details</h3>
+            <div className="flex items-center justify-between rounded-t-lg bg-orange-600 px-6 py-4 text-white">
+              <h3 className="text-lg font-semibold">Change Password</h3>
               <button
                 onClick={() => setShowChangePasswordModal(false)}
                 className="rounded-full p-1 hover:bg-white/20"
@@ -364,38 +366,38 @@ export default function MainContentProfile() {
             <div className="p-6">
               <form onSubmit={handleSubmit}>
                 <div className="space-y-4">
-                  {/* Name */}
+                  {/* Password */}
                   <div>
                     <label
-                      htmlFor="name"
-                      className="mb-1 block text-sm font-medium"
+                      htmlFor="password"
+                      className="mb-1 block text-sm font-medium text-gray-700"
                     >
-                      Password: <span className="text-red-500">*</span>
+                      New Password: <span className="text-red-500">*</span>
                     </label>
                     <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      value={formData.name}
+                      type="password"
+                      id="password"
+                      name="password"
+                      value={formData.password}
                       onChange={handleInputChange}
                       required
                       className="w-full rounded-md border border-gray-300 p-2"
                     />
                   </div>
 
-                  {/* Phone */}
+                  {/* Confirm Password */}
                   <div>
                     <label
-                      htmlFor="phone"
-                      className="mb-1 block text-sm font-medium"
+                      htmlFor="confirmPassword"
+                      className="mb-1 block text-sm font-medium text-gray-700"
                     >
-                      Confirm password: <span className="text-red-500">*</span>
+                      Confirm Password: <span className="text-red-500">*</span>
                     </label>
                     <input
-                      type="text"
-                      id="phone"
-                      name="phone"
-                      value={formData.phone}
+                      type="password"
+                      id="confirmPassword"
+                      name="confirmPassword"
+                      value={formData.confirmPassword}
                       onChange={handleInputChange}
                       required
                       className="w-full rounded-md border border-gray-300 p-2"
@@ -414,7 +416,7 @@ export default function MainContentProfile() {
                   </button>
                   <button
                     type="submit"
-                    className="rounded-md bg-gray-100 px-6 py-2 font-medium text-gray-800 transition hover:bg-gray-200"
+                    className="rounded-md bg-orange-600 px-6 py-2 font-medium text-white transition hover:bg-orange-700"
                   >
                     Submit
                   </button>
@@ -427,3 +429,4 @@ export default function MainContentProfile() {
     </div>
   );
 }
+ 
