@@ -166,6 +166,13 @@ export default function MainContentProfile() {
                     Change
                   </button>
                 </div>
+                <hr className="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700"></hr>
+                <button
+                  onClick={() => setShowChangePasswordModal(true)}
+                  className="rounded-md border border-gray-300 bg-white px-4 py-2 font-medium text-gray-700 shadow-sm transition hover:bg-gray-50"
+                >
+                  Change Email
+                </button>
               </div>
             </div>
           </div>
@@ -429,4 +436,3 @@ export default function MainContentProfile() {
     </div>
   );
 }
- 
