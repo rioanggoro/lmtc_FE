@@ -109,7 +109,7 @@ export default function NewPartner() {
               </div>
               <button
                 onClick={() =>
-                  copyCode(selectedPartner.promoCode || "LMCTCODE")
+                  copyCode(selectedPartner.promoCode || "HopkinsCODE")
                 }
                 className="rounded-full bg-orange-500 px-6 py-3 font-medium text-white hover:bg-orange-600"
               >

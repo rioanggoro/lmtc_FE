@@ -25,7 +25,7 @@ export default function LoginBox() {
       >
         <Image
           className="login__img"
-          src="/img/lmctm.png"
+          src="/img/Hopkinsm.png"
           alt="Safe"
           width={340}
           height={340}

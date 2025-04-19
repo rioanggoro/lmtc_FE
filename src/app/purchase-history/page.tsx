@@ -34,7 +34,7 @@ const standardPackages = [
     id: 3,
     amount: "$15",
     title:
-      "LMCT Plus | admin@rsg-wa.com.au | Product: Early Bird Standard Discounted Package | 10 X 5 Free Entries | $2 Million [50]",
+      "Hopkins Plus | admin@rsg-wa.com.au | Product: Early Bird Standard Discounted Package | 10 X 5 Free Entries | $2 Million [50]",
     status: "Succeeded",
     created: "February 25, 2025, 4:08 PM",
   },
@@ -42,7 +42,7 @@ const standardPackages = [
     id: 4,
     amount: "$30",
     title:
-      "LMCT Plus | admin@rsg-wa.com.au | Product: Early Bird Standard Package | 10 X 5 Free Entries | $2 Million [50]",
+      "Hopkins Plus | admin@rsg-wa.com.au | Product: Early Bird Standard Package | 10 X 5 Free Entries | $2 Million [50]",
     status: "Succeeded",
     created: "February 25, 2025, 4:08 PM",
   },
@@ -53,7 +53,7 @@ const bronzePackages = [
     id: 5,
     amount: "$15",
     title:
-      "LMCT Plus | admin@rsg-wa.com.au | Product: Early Bird Bronze Discounted Package | 10 X 5 Free Entries | 10 Winners 100K Each [50]",
+      "Hopkins Plus | admin@rsg-wa.com.au | Product: Early Bird Bronze Discounted Package | 10 X 5 Free Entries | 10 Winners 100K Each [50]",
     status: "Succeeded",
     created: "February 13, 2025, 12:26 PM",
   },
@@ -61,7 +61,7 @@ const bronzePackages = [
     id: 6,
     amount: "$30",
     title:
-      "LMCT Plus | admin@rsg-wa.com.au | Product: Early Bird Bronze Package | 10 X 5 Free Entries | 10 Winners 100K Each [50]",
+      "Hopkins Plus | admin@rsg-wa.com.au | Product: Early Bird Bronze Package | 10 X 5 Free Entries | 10 Winners 100K Each [50]",
     status: "Succeeded",
     created: "February 13, 2025, 12:26 PM",
   },

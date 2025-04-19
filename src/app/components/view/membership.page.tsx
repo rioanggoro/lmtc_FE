@@ -140,12 +140,14 @@ export default function Membership() {
         <div className="mb-8 text-center">
           <div className="relative mx-auto mb-6 w-[460px] rounded-lg border border-dashed border-orange-300 bg-white py-6 shadow">
             <h3 className="mb-4 text-lg font-semibold text-gray-700">
-              LMCT+ Store Discount Code
+              Hopkins+ Store Discount Code
             </h3>
             <div className="mx-auto w-fit rounded-md bg-orange-50 px-8 py-3 text-orange-500 shadow-sm ring-1 ring-orange-300">
-              <span className="font-semibold tracking-wide">15ENTRYLMCT</span>
+              <span className="font-semibold tracking-wide">
+                15ENTRYHopkins
+              </span>
               <button
-                onClick={() => copyCode("15ENTRYLMCT")}
+                onClick={() => copyCode("15ENTRYHopkins")}
                 className="ml-2 inline-flex align-middle text-orange-500 hover:text-orange-700"
               >
                 <Copy className="h-4 w-4" />

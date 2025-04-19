@@ -14,7 +14,7 @@ export default function Home() {
           <Image
             className="login__logo-img"
             src="/img/hopkins_img.png"
-            alt="LMCT+"
+            alt="Hopkins+"
             width={120}
             height={40}
           />
@@ -27,7 +27,7 @@ export default function Home() {
               {/* <Image
                 className="login__logo-img"
                 src="/img/hopkins_img.png"
-                alt="LMCT+"
+                alt="Hopkins+"
                 width={95}
                 height={35}
               /> */}

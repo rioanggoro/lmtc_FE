@@ -19,7 +19,7 @@ export default function ResetPassword() {
       <div className="mb-8 flex justify-center">
         <Image
           src="/img/hopkins_img.png"
-          alt="LMCT+ Logo"
+          alt="Hopkins+ Logo"
           width={350}
           height={100}
           className="mx-auto block max-w-[350px]"
@@ -32,7 +32,7 @@ export default function ResetPassword() {
         <div className="relative bg-primary-color p-4 pb-16">
           <h1 className="text-xl font-medium text-slate-50">Reset Password</h1>
           <p className="text-sm text-slate-50">
-            Recover password with <strong>LMCT+</strong>
+            Recover password with <strong>Hopkins+</strong>
           </p>
         </div>
 

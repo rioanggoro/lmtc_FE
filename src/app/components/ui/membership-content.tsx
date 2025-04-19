@@ -25,7 +25,7 @@ export default function MembershipContent() {
       <div className="relative mb-8 h-48 w-full overflow-hidden rounded-lg md:h-64">
         <Image
           className="object-cover"
-          src="/img/lmctm.png"
+          src="/img/Hopkinsm.png"
           alt="Luxury Cars"
           fill
           priority

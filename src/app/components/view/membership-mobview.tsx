@@ -110,12 +110,12 @@ export default function MembershipMobile() {
 
         <div className="mt-8 rounded-lg border border-dashed border-orange-300 bg-white px-4 py-4 text-center shadow">
           <h3 className="mb-2 text-base font-semibold text-gray-700">
-            LMCT+ Store Discount Code
+            Hopkins+ Store Discount Code
           </h3>
           <div className="mx-auto w-fit rounded bg-orange-50 px-6 py-2 text-orange-500 ring-1 ring-orange-300">
-            <span className="font-semibold">15ENTRYLMCT</span>
+            <span className="font-semibold">15ENTRYHopkins</span>
             <button
-              onClick={() => copyCode("15ENTRYLMCT")}
+              onClick={() => copyCode("15ENTRYHopkins")}
               className="ml-2 inline-flex align-middle text-orange-500 hover:text-orange-700"
             >
               <Copy className="h-4 w-4" />

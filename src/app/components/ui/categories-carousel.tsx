@@ -38,7 +38,7 @@ export default function CategoriesCarousel() {
     {
       id: 1,
       title: "Gee Up",
-      description: "CODE: LMCT+ FOR 10% OFF",
+      description: "CODE: Hopkins+ FOR 10% OFF",
       image: "/img/hopkins_img.png?height=400&width=800",
       color: "bg-cyan-400",
     },

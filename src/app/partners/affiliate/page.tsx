@@ -223,11 +223,11 @@ export default function AffiliatePage() {
             {/* Promo code */}
             <div className="mb-6 flex flex-col items-center justify-center gap-2 sm:mb-8 sm:flex-row">
               <div className="w-full rounded-full bg-gray-100 px-4 py-3 text-center font-mono font-bold text-gray-800 sm:w-auto sm:px-6">
-                {selectedPartner.promoCode || "LMCTCODE"}
+                {selectedPartner.promoCode || "HopkinsCODE"}
               </div>
               <button
                 onClick={() =>
-                  copyCode(selectedPartner.promoCode || "LMCTCODE")
+                  copyCode(selectedPartner.promoCode || "HopkinsCODE")
                 }
                 className="w-full rounded-full bg-orange-500 px-4 py-3 font-medium text-white hover:bg-orange-600 sm:w-auto sm:px-6"
               >

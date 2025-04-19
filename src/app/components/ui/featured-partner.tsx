@@ -115,11 +115,11 @@ export default function FeaturedPartner() {
             {/* Promo code */}
             <div className="mb-8 flex items-center justify-center gap-2">
               <div className="rounded-full bg-gray-100 px-6 py-3 font-mono font-bold text-gray-800">
-                {selectedPartner.promoCode || "LMCTCODE"}
+                {selectedPartner.promoCode || "HopkinsCODE"}
               </div>
               <button
                 onClick={() =>
-                  copyCode(selectedPartner.promoCode || "LMCTCODE")
+                  copyCode(selectedPartner.promoCode || "HopkinsCODE")
                 }
                 className="rounded-full bg-orange-500 px-6 py-3 font-medium text-white hover:bg-orange-600"
               >
