@@ -34,8 +34,7 @@ export default function Home() {
             </h1>
 
             <p className="mb-8 text-center text-lg text-gray-600">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Est,
-              iusto.
+              Please enter your email and password to log in to your account.
             </p>
 
             <LoginForm />
