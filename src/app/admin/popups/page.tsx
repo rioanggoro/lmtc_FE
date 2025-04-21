@@ -168,7 +168,7 @@ export default function PopupsPage() {
           </label>
         </div>
 
-        <Button type="submit">{editId ? "Update Pop-up" : "Add Pop-up"}</Button>
+        <Button className="bg-primary-color" type="submit">{editId ? "Update Pop-up" : "Add Pop-up"}</Button>
       </form>
 
       {/* Popup List */}

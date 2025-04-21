@@ -175,7 +175,7 @@ export default function GiveawaysPage() {
           </label>
         </div>
 
-        <Button className="bg-orange-500" type="submit">
+        <Button className="bg-primary-color" type="submit">
           {editId ? "Update" : "Add Giveaway"}
         </Button>
       </form>
