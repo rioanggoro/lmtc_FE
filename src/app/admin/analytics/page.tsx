@@ -1,6 +1,6 @@
 "use client";
 
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent } from "../../components/ui/card";
 import {
   LineChart,
   Line,
@@ -13,6 +13,7 @@ import {
   Bar,
   Legend,
 } from "recharts";
+
 
 export default function AnalyticsPage() {
   const userGrowth = [
