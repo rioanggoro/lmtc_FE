@@ -3,220 +3,272 @@
 import { useState } from "react";
 import { Trash2, PencilLine } from "lucide-react";
 import { Button } from "../../components/ui/button";
-
-interface Popup {
-  id: number;
-  title: string;
-  content: string;
-  trigger: string;
-  isActive: boolean;
-}
+import { partners as defaultPartners, Partner } from "../../../lib/partners";
 
 export default function PopupsPage() {
-  const [popups, setPopups] = useState<Popup[]>([
-    {
-      id: 1,
-      title: "Kode Diskon 50%",
-      content: "Gunakan kode GET50 untuk diskon 50% hari ini!",
-      trigger: "getcode",
-      isActive: true,
-    },
-    {
-      id: 2,
-      title: "Info Pengiriman",
-      content: "Barang akan dikirim dalam 2-3 hari kerja.",
-      trigger: "checkout",
-      isActive: false,
-    },
-  ]);
-
-  const [form, setForm] = useState<Omit<Popup, "id">>({
-    title: "",
-    content: "",
-    trigger: "getcode",
-    isActive: true,
+  const [partners, setPartners] = useState<Partner[]>(defaultPartners);
+  const [form, setForm] = useState<Omit<Partner, "id">>({
+    name: "",
+    category: "",
+    logo: "",
+    isPopular: false,
+    discount: "",
+    discountText: "",
+    promoCode: "",
+    description: "",
+    tags: [],
+    storeAddress: "",
+    email: "",
+    phone: "",
+    facebook: "",
+    instagram: "",
+    website: "",
+    hasMap: "",
+    url: "",
   });
-
   const [editId, setEditId] = useState<number | null>(null);
 
-  const handleChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >,
-  ) => {
-    const target = e.target as
-      | HTMLInputElement
-      | HTMLTextAreaElement
-      | HTMLSelectElement;
-    const { name, value, type } = target;
-    const checked =
-      target.type === "checkbox"
-        ? (target as HTMLInputElement).checked
-        : undefined;
+  const handleChange = (e: React.ChangeEvent<any>) => {
+    const { name, value, type, checked } = e.target;
     setForm((prev) => ({
       ...prev,
       [name]: type === "checkbox" ? checked : value,
     }));
   };
 
+  const handleTagsChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setForm((prev) => ({
+      ...prev,
+      tags: e.target.value.split(",").map((tag) => tag.trim()),
+    }));
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (editId !== null) {
-      setPopups((prev) =>
-        prev.map((popup) =>
-          popup.id === editId ? { ...popup, ...form } : popup,
+      setPartners((prev) =>
+        prev.map((partner) =>
+          partner.id === editId ? { ...partner, ...form } : partner,
         ),
       );
       setEditId(null);
     } else {
-      const newPopup: Popup = {
+      const newPartner: Partner = {
         id: Date.now(),
         ...form,
       };
-      setPopups((prev) => [...prev, newPopup]);
+      setPartners((prev) => [...prev, newPartner]);
     }
-
     setForm({
-      title: "",
-      content: "",
-      trigger: "getcode",
-      isActive: true,
+      name: "",
+      category: "",
+      logo: "",
+      isPopular: false,
+      discount: "",
+      discountText: "",
+      promoCode: "",
+      description: "",
+      tags: [],
+      storeAddress: "",
+      email: "",
+      phone: "",
+      facebook: "",
+      instagram: "",
+      website: "",
+      hasMap: "",
+      url: "",
     });
   };
 
-  const handleEdit = (popup: Popup) => {
-    setEditId(popup.id);
-    setForm({
-      title: popup.title,
-      content: popup.content,
-      trigger: popup.trigger,
-      isActive: popup.isActive,
-    });
+  const handleEdit = (partner: Partner) => {
+    setEditId(partner.id);
+    setForm({ ...partner });
   };
 
   const handleDelete = (id: number) => {
-    setPopups((prev) => prev.filter((popup) => popup.id !== id));
+    setPartners((prev) => prev.filter((partner) => partner.id !== id));
     if (editId === id) setEditId(null);
   };
 
   return (
     <div>
-      <h1 className="mb-6 text-2xl font-bold text-gray-800">Manage Pop-ups</h1>
+      <h1 className="mb-6 text-2xl font-bold text-gray-800">
+        Manage Pop-up Products
+      </h1>
 
       <form
         onSubmit={handleSubmit}
         className="mb-8 space-y-4 rounded-lg border bg-white p-6 shadow-sm"
       >
         <h2 className="text-lg font-semibold text-gray-700">
-          {editId ? "Edit Pop-up" : "Add New Pop-up"}
+          {editId ? "Edit Partner Pop-up" : "Add New Partner Pop-up"}
         </h2>
 
-        <div>
-          <label className="mb-1 block text-sm font-medium text-gray-600">
-            Title
+        <input
+          name="name"
+          placeholder="Name"
+          value={form.name}
+          onChange={handleChange}
+          className="w-full rounded border px-3 py-2 text-sm"
+          required
+        />
+        <input
+          name="category"
+          placeholder="Category"
+          value={form.category}
+          onChange={handleChange}
+          className="w-full rounded border px-3 py-2 text-sm"
+          required
+        />
+        <input
+          name="logo"
+          placeholder="Logo URL"
+          value={form.logo}
+          onChange={handleChange}
+          className="w-full rounded border px-3 py-2 text-sm"
+        />
+        <input
+          name="discount"
+          placeholder="Discount"
+          value={form.discount}
+          onChange={handleChange}
+          className="w-full rounded border px-3 py-2 text-sm"
+        />
+        <input
+          name="discountText"
+          placeholder="Discount Text"
+          value={form.discountText}
+          onChange={handleChange}
+          className="w-full rounded border px-3 py-2 text-sm"
+        />
+        <input
+          name="promoCode"
+          placeholder="Promo Code"
+          value={form.promoCode}
+          onChange={handleChange}
+          className="w-full rounded border px-3 py-2 text-sm"
+        />
+        <textarea
+          name="description"
+          placeholder="Description"
+          value={form.description}
+          onChange={handleChange}
+          className="w-full rounded border px-3 py-2 text-sm"
+        />
+        <input
+          name="tags"
+          placeholder="Tags (comma separated)"
+          onChange={handleTagsChange}
+          className="w-full rounded border px-3 py-2 text-sm"
+        />
+        <input
+          name="storeAddress"
+          placeholder="Store Address"
+          value={form.storeAddress}
+          onChange={handleChange}
+          className="w-full rounded border px-3 py-2 text-sm"
+        />
+        <input
+          name="email"
+          placeholder="Email"
+          value={form.email}
+          onChange={handleChange}
+          className="w-full rounded border px-3 py-2 text-sm"
+        />
+        <input
+          name="phone"
+          placeholder="Phone"
+          value={form.phone}
+          onChange={handleChange}
+          className="w-full rounded border px-3 py-2 text-sm"
+        />
+        <input
+          name="facebook"
+          placeholder="Facebook URL"
+          value={form.facebook}
+          onChange={handleChange}
+          className="w-full rounded border px-3 py-2 text-sm"
+        />
+        <input
+          name="instagram"
+          placeholder="Instagram URL"
+          value={form.instagram}
+          onChange={handleChange}
+          className="w-full rounded border px-3 py-2 text-sm"
+        />
+        <input
+          name="website"
+          placeholder="Website URL"
+          value={form.website}
+          onChange={handleChange}
+          className="w-full rounded border px-3 py-2 text-sm"
+        />
+        <input
+          name="hasMap"
+          placeholder="Map Image URL or Embed"
+          value={form.hasMap}
+          onChange={handleChange}
+          className="w-full rounded border px-3 py-2 text-sm"
+        />
+        <input
+          name="url"
+          placeholder="Official Website Link"
+          value={form.url}
+          onChange={handleChange}
+          className="w-full rounded border px-3 py-2 text-sm"
+        />
+
+        <div className="flex gap-4">
+          <label className="flex items-center gap-2 text-sm">
+            <input
+              type="checkbox"
+              name="isPopular"
+              checked={form.isPopular ?? false}
+              onChange={handleChange}
+            />{" "}
+            Popular Partner
           </label>
-          <input
-            type="text"
-            name="title"
-            value={form.title}
-            onChange={handleChange}
-            className="w-full rounded-md border px-3 py-2 text-sm"
-            required
-          />
         </div>
 
-        <div>
-          <label className="mb-1 block text-sm font-medium text-gray-600">
-            Content
-          </label>
-          <textarea
-            name="content"
-            value={form.content}
-            onChange={handleChange}
-            className="w-full rounded-md border px-3 py-2 text-sm"
-            rows={3}
-            required
-          />
-        </div>
-
-        <div>
-          <label className="mb-1 block text-sm font-medium text-gray-600">
-            Trigger
-          </label>
-          <select
-            name="trigger"
-            value={form.trigger}
-            onChange={handleChange}
-            className="w-full rounded-md border px-3 py-2 text-sm"
-          >
-            <option value="getcode">Get Code</option>
-            <option value="checkout">Checkout</option>
-            <option value="homepage">Homepage</option>
-          </select>
-        </div>
-
-        <div className="flex items-center gap-2">
-          <input
-            type="checkbox"
-            name="isActive"
-            checked={form.isActive}
-            onChange={handleChange}
-            id="isActive"
-          />
-          <label htmlFor="isActive" className="text-sm text-gray-700">
-            Active
-          </label>
-        </div>
-
-        <Button className="bg-primary-color" type="submit">{editId ? "Update Pop-up" : "Add Pop-up"}</Button>
+        <Button type="submit">
+          {editId ? "Update Partner" : "Add Partner"}
+        </Button>
       </form>
 
-      {/* Popup List */}
       <div className="rounded-lg border bg-white p-4 shadow-sm">
         <h2 className="mb-4 text-lg font-semibold text-gray-700">
-          Existing Pop-ups
+          Existing Partner Pop-ups
         </h2>
-        {popups.length === 0 ? (
-          <p className="text-sm text-gray-500">No pop-ups created.</p>
-        ) : (
-          <ul className="divide-y divide-gray-200">
-            {popups.map((popup) => (
-              <li
-                key={popup.id}
-                className="flex items-start justify-between p-3 hover:bg-gray-50"
-              >
+        <ul className="divide-y divide-gray-200">
+          {partners.map((partner) => (
+            <li key={partner.id} className="p-4">
+              <div className="flex items-center justify-between">
                 <div>
-                  <h3 className="font-semibold text-gray-800">{popup.title}</h3>
-                  <p className="text-sm text-gray-600">{popup.content}</p>
-                  <div className="mt-1 text-xs text-gray-500">
-                    Trigger: <strong>{popup.trigger}</strong> | Status:{" "}
-                    <span
-                      className={
-                        popup.isActive ? "text-green-600" : "text-red-500"
-                      }
-                    >
-                      {popup.isActive ? "Active" : "Inactive"}
-                    </span>
+                  <h3 className="text-lg font-bold">{partner.name}</h3>
+                  <p className="text-sm text-gray-600">{partner.description}</p>
+                  <div className="text-xs text-gray-400">
+                    Tags: {partner.tags?.join(", ")} | Promo:{" "}
+                    {partner.promoCode}
                   </div>
                 </div>
-                <div className="ml-4 flex gap-2">
+                <div className="flex gap-2">
                   <button
-                    onClick={() => handleEdit(popup)}
-                    className="text-sm text-blue-500 hover:underline"
+                    onClick={() => handleEdit(partner)}
+                    className="text-blue-500"
                   >
                     <PencilLine className="h-4 w-4" />
                   </button>
                   <button
-                    onClick={() => handleDelete(popup.id)}
-                    className="text-sm text-red-500 hover:underline"
+                    onClick={() => handleDelete(partner.id)}
+                    className="text-red-500"
                   >
                     <Trash2 className="h-4 w-4" />
                   </button>
                 </div>
-              </li>
-            ))}
-          </ul>
-        )}
+              </div>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );

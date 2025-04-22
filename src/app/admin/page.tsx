@@ -10,7 +10,7 @@ import {
   DollarSign,
   AlertCircle,
 } from "lucide-react"
-
+  
 export default function AdminDashboard() {
   // Sample stats data
   const stats = [
