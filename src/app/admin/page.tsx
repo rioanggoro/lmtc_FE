@@ -1,4 +1,4 @@
-import Link from "next/link"
+import Link from "next/link";
 import {
   Layers,
   ImageIcon,
@@ -9,8 +9,9 @@ import {
   Users,
   DollarSign,
   AlertCircle,
-} from "lucide-react"
-  
+} from "lucide-react";
+import QuickAccess from "./components/admin/QuickAccess";
+
 export default function AdminDashboard() {
   // Sample stats data
   const stats = [
@@ -38,7 +39,7 @@ export default function AdminDashboard() {
       change: "-5",
       icon: <AlertCircle className="h-6 w-6 text-red-500" />,
     },
-  ]
+  ];
 
   // Sample recent activities
   const recentActivities = [
@@ -72,13 +73,15 @@ export default function AdminDashboard() {
       category: "Discount Code",
       time: "2 days ago",
     },
-  ]
+  ];
 
   return (
     <div>
       <div className="mb-6 flex items-center justify-between">
         <h1 className="text-2xl font-bold text-gray-800">Admin Dashboard</h1>
-        <div className="text-sm text-gray-500">Last updated: {new Date().toLocaleString()}</div>
+        <div className="text-sm text-gray-500">
+          Last updated: {new Date().toLocaleString()}
+        </div>
       </div>
 
       {/* Stats cards */}
@@ -87,9 +90,15 @@ export default function AdminDashboard() {
           <div key={index} className="rounded-lg border bg-white p-6 shadow-sm">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm font-medium text-gray-500">{stat.title}</p>
-                <p className="mt-1 text-3xl font-semibold text-gray-800">{stat.value}</p>
-                <p className="mt-1 text-sm font-medium text-green-500">{stat.change}</p>
+                <p className="text-sm font-medium text-gray-500">
+                  {stat.title}
+                </p>
+                <p className="mt-1 text-3xl font-semibold text-gray-800">
+                  {stat.value}
+                </p>
+                <p className="mt-1 text-sm font-medium text-green-500">
+                  {stat.change}
+                </p>
               </div>
               <div className="rounded-full bg-gray-100 p-3">{stat.icon}</div>
             </div>
@@ -98,64 +107,22 @@ export default function AdminDashboard() {
       </div>
 
       {/* Quick access */}
-      <div className="mb-8">
-        <h2 className="mb-4 text-lg font-semibold text-gray-700">Quick Access</h2>
-        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-6">
-          <Link
-            href="/admin/categories"
-            className="flex flex-col items-center rounded-lg border bg-white p-4 text-center shadow-sm transition-colors hover:bg-orange-50"
-          >
-            <Layers className="mb-2 h-8 w-8 text-orange-500" />
-            <span className="text-sm font-medium text-gray-700">Categories</span>
-          </Link>
-          <Link
-            href="/admin/banners"
-            className="flex flex-col items-center rounded-lg border bg-white p-4 text-center shadow-sm transition-colors hover:bg-orange-50"
-          >
-            <ImageIcon className="mb-2 h-8 w-8 text-orange-500" />
-            <span className="text-sm font-medium text-gray-700">Banners</span>
-          </Link>
-          <Link
-            href="/admin/popups"
-            className="flex flex-col items-center rounded-lg border bg-white p-4 text-center shadow-sm transition-colors hover:bg-orange-50"
-          >
-            <MessageSquare className="mb-2 h-8 w-8 text-orange-500" />
-            <span className="text-sm font-medium text-gray-700">Pop-ups</span>
-          </Link>
-          <Link
-            href="/admin/giveaways"
-            className="flex flex-col items-center rounded-lg border bg-white p-4 text-center shadow-sm transition-colors hover:bg-orange-50"
-          >
-            <Gift className="mb-2 h-8 w-8 text-orange-500" />
-            <span className="text-sm font-medium text-gray-700">Giveaways</span>
-          </Link>
-          <Link
-            href="/admin/support"
-            className="flex flex-col items-center rounded-lg border bg-white p-4 text-center shadow-sm transition-colors hover:bg-orange-50"
-          >
-            <TicketCheck className="mb-2 h-8 w-8 text-orange-500" />
-            <span className="text-sm font-medium text-gray-700">Support</span>
-          </Link>
-          <Link
-            href="/admin/analytics"
-            className="flex flex-col items-center rounded-lg border bg-white p-4 text-center shadow-sm transition-colors hover:bg-orange-50"
-          >
-            <TrendingUp className="mb-2 h-8 w-8 text-orange-500" />
-            <span className="text-sm font-medium text-gray-700">Analytics</span>
-          </Link>
-        </div>
-      </div>
+      <QuickAccess />
 
       {/* Recent activity */}
       <div>
-        <h2 className="mb-4 text-lg font-semibold text-gray-700">Recent Activity</h2>
+        <h2 className="mb-4 text-lg font-semibold text-gray-700">
+          Recent Activity
+        </h2>
         <div className="overflow-hidden rounded-lg border bg-white shadow">
           <ul className="divide-y divide-gray-200">
             {recentActivities.map((activity) => (
               <li key={activity.id} className="p-4 hover:bg-gray-50">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="font-medium text-gray-800">{activity.action}</p>
+                    <p className="font-medium text-gray-800">
+                      {activity.action}
+                    </p>
                     <p className="text-sm text-gray-500">{activity.category}</p>
                   </div>
                   <span className="text-sm text-gray-500">{activity.time}</span>
@@ -166,5 +133,5 @@ export default function AdminDashboard() {
         </div>
       </div>
     </div>
-  )
+  );
 }
