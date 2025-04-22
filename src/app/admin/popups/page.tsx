@@ -230,7 +230,10 @@ export default function PopupsPage() {
           </label>
         </div>
 
-        <Button type="submit">
+        <Button
+          className="bg-orange-500 hover:bg-orange-700 hover:text-white"
+          type="submit"
+        >
           {editId ? "Update Partner" : "Add Partner"}
         </Button>
       </form>
