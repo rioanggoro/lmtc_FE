@@ -16,7 +16,7 @@ import {
 } from "lucide-react";
 import MobileMenuButton from "../components/layout/MobileMenuButton";
 import MobileMenu from "../components/layout/MobileMenuButton"; // Ensure you have this component imported
-import AllCategories from "../components/ui/all-categories";
+import AllCategories from "../(user)/_components/all-categories";
 import MobileBottomNavigationBar from "../components/layout/MobileBottomNavigationBar";
 
 export default function Categories() {
