@@ -11,7 +11,7 @@ export const initialBanners: Banner[] = [
   {
     id: 1,
     title: "Summer Promotion",
-    image: "/placeholder.svg?height=200&width=800&text=Summer+Promotion+Banner",
+    image: "https://statik.tempo.co/data/2024/06/20/id_1311774/1311774_720.jpg",
     page: "Home",
     active: true,
     position: "Top",
@@ -19,7 +19,7 @@ export const initialBanners: Banner[] = [
   {
     id: 2,
     title: "New Giveaway",
-    image: "/placeholder.svg?height=200&width=800&text=New+Giveaway+Banner",
+    image: "https://statik.tempo.co/data/2024/06/20/id_1311774/1311774_720.jpg",
     page: "Giveaways",
     active: true,
     position: "Middle",
@@ -27,7 +27,7 @@ export const initialBanners: Banner[] = [
   {
     id: 3,
     title: "Special Offer",
-    image: "/placeholder.svg?height=200&width=800&text=Special+Offer+Banner",
+    image: "https://statik.tempo.co/data/2024/06/20/id_1311774/1311774_720.jpg",
     page: "Discounts",
     active: false,
     position: "Bottom",
