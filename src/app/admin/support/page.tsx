@@ -2,38 +2,11 @@
 
 import { useState } from "react";
 import { PencilLine, Trash2 } from "lucide-react";
-import { Button } from "../../components/ui/button";
-
-
-interface Ticket {
-  id: number;
-  subject: string;
-  message: string;
-  userEmail: string;
-  status: "open" | "pending" | "closed";
-  createdAt: string;
-}
+import { Ticket, dummyTickets } from "../../../lib/support";
+import SupportForm from "../components/support/SupportForm";
 
 export default function SupportPage() {
-  const [tickets, setTickets] = useState<Ticket[]>([
-    {
-      id: 1,
-      subject: "Tidak bisa klaim kode",
-      message: "Saya sudah klik getcode tapi tidak muncul kode promo.",
-      userEmail: "user1@email.com",
-      status: "open",
-      createdAt: "2025-04-21 10:30",
-    },
-    {
-      id: 2,
-      subject: "Hadiah belum dikirim",
-      message:
-        "Saya menang giveaway minggu lalu tapi belum ada info pengiriman.",
-      userEmail: "user2@email.com",
-      status: "pending",
-      createdAt: "2025-04-20 09:00",
-    },
-  ]);
+  const [tickets, setTickets] = useState<Ticket[]>(dummyTickets);
 
   const [form, setForm] = useState<Omit<Ticket, "id" | "createdAt">>({
     subject: "",
@@ -43,37 +16,6 @@ export default function SupportPage() {
   });
 
   const [editId, setEditId] = useState<number | null>(null);
-
-  const handleChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >,
-  ) => {
-    const { name, value } = e.target;
-    setForm((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-
-    if (editId !== null) {
-      setTickets((prev) =>
-        prev.map((ticket) =>
-          ticket.id === editId ? { ...ticket, ...form } : ticket,
-        ),
-      );
-      setEditId(null);
-    } else {
-      const newTicket: Ticket = {
-        id: Date.now(),
-        createdAt: new Date().toLocaleString(),
-        ...form,
-      };
-      setTickets((prev) => [...prev, newTicket]);
-    }
-
-    setForm({ subject: "", message: "", userEmail: "", status: "open" });
-  };
 
   const handleEdit = (ticket: Ticket) => {
     setEditId(ticket.id);
@@ -95,74 +37,7 @@ export default function SupportPage() {
       <h1 className="mb-6 text-2xl font-bold text-gray-800">Support Tickets</h1>
 
       {/* Form */}
-      <form
-        onSubmit={handleSubmit}
-        className="mb-8 space-y-4 rounded-lg border bg-white p-6 shadow-sm"
-      >
-        <h2 className="text-lg font-semibold text-gray-700">
-          {editId ? "Edit Ticket" : "Add Ticket (Manual)"}
-        </h2>
-
-        <div>
-          <label className="mb-1 block text-sm font-medium text-gray-600">
-            Subject
-          </label>
-          <input
-            type="text"
-            name="subject"
-            value={form.subject}
-            onChange={handleChange}
-            required
-            className="w-full rounded-md border px-3 py-2 text-sm"
-          />
-        </div>
-
-        <div>
-          <label className="mb-1 block text-sm font-medium text-gray-600">
-            Message
-          </label>
-          <textarea
-            name="message"
-            value={form.message}
-            onChange={handleChange}
-            rows={3}
-            required
-            className="w-full rounded-md border px-3 py-2 text-sm"
-          />
-        </div>
-
-        <div>
-          <label className="mb-1 block text-sm font-medium text-gray-600">
-            User Email
-          </label>
-          <input
-            type="email"
-            name="userEmail"
-            value={form.userEmail}
-            onChange={handleChange}
-            required
-            className="w-full rounded-md border px-3 py-2 text-sm"
-          />
-        </div>
-
-        <div>
-          <label className="mb-1 block text-sm font-medium text-gray-600">
-            Status
-          </label>
-          <select
-            name="status"
-            value={form.status}
-            onChange={handleChange}
-            className="w-full rounded-md border px-3 py-2 text-sm"
-          >
-            <option value="open">Open</option>
-            <option value="pending">Pending</option>
-            <option value="closed">Closed</option>
-          </select>
-        </div>
-
-        <Button type="submit">{editId ? "Update Ticket" : "Add Ticket"}</Button>
-      </form>
+      <SupportForm />
 
       {/* List */}
       <div className="rounded-lg border bg-white p-4 shadow-sm">

@@ -1,19 +1,7 @@
-import Link from "next/link";
-import {
-  Layers,
-  ImageIcon,
-  MessageSquare,
-  Gift,
-  TicketCheck,
-  TrendingUp,
-  Users,
-  DollarSign,
-  AlertCircle,
-} from "lucide-react";
+import { Gift, Users, DollarSign, AlertCircle } from "lucide-react";
 import QuickAccess from "./components/admin/QuickAccess";
 
 export default function AdminDashboard() {
-  // Sample stats data
   const stats = [
     {
       title: "Total Users",
