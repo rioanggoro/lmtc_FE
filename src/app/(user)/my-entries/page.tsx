@@ -3,14 +3,13 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Home } from "lucide-react";
-import Header from "../components/layout/header";
-import FooterUser from "../components/ui/footer-user";
-import MobileMenuButton from "../components/layout/MobileMenuButton";
-import MobileMenu from "../components/layout/MobileMenuButton";
-import MobileBottomNavigationBar from "../components/layout/MobileBottomNavigationBar";
-import EntryCard from "../components/ui/entry-card";
+import Header from "../../components/layout/header";
+import FooterUser from "../../components/ui/footer-user";
+import EntryCard from "../_components/entry-card";
+import MobileMenuButton from "src/app/components/layout/MobileMenuButton";
+import MobileMenu from "../../components/layout/MobileMenuButton";
+import MobileBottomNavigationBar from "../../components/layout/MobileBottomNavigationBar";
 
-// Sample my entries data
 const myEntries = [
   {
     id: "1-million-cash",

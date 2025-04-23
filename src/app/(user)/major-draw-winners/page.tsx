@@ -3,12 +3,12 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Home } from "lucide-react";
-import Header from "../components/layout/header";
-import FooterUser from "../components/ui/footer-user";
-import MobileMenuButton from "../components/layout/MobileMenuButton";
-import MobileMenu from "../components/layout/MobileMenuButton";
-import MobileBottomNavigationBar from "../components/layout/MobileBottomNavigationBar";
-import WinnerCard from "../components/ui/winner-card";
+import Header from "../../components/layout/header";
+import FooterUser from "../../components/ui/footer-user";
+import MobileMenuButton from "../../components/layout/MobileMenuButton";
+import MobileMenu from "../../components/layout/MobileMenuButton";
+import MobileBottomNavigationBar from "../../components/layout/MobileBottomNavigationBar";
+import WinnerCard from "../_components/winner-card";
 
 const majorDrawWinners = [
   {

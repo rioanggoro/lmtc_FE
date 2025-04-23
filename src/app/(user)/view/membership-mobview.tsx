@@ -1,10 +1,10 @@
 "use client";
 import Link from "next/link";
 import Header from "../../components/layout/header";
-import FooterUser from "../ui/footer-user";
 import { ChevronRight, Home, Copy } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
+import FooterUser from "../../components/ui/footer-user";
 
 export default function MembershipMobile() {
   const [isCopied, setIsCopied] = useState(false);

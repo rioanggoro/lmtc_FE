@@ -1,8 +1,8 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import FooterUser from "../components/ui/footer-user";
-import Header from "../components/layout/header";
+import FooterUser from "../../components/ui/footer-user";
+import Header from "../../components/layout/header";
 import {
   Car,
   Hammer,
@@ -14,10 +14,10 @@ import {
   Dumbbell,
   PawPrint,
 } from "lucide-react";
-import MobileMenuButton from "../components/layout/MobileMenuButton";
-import MobileMenu from "../components/layout/MobileMenuButton"; // Ensure you have this component imported
-import AllCategories from "../(user)/_components/all-categories";
-import MobileBottomNavigationBar from "../components/layout/MobileBottomNavigationBar";
+import MobileMenuButton from "../../components/layout/MobileMenuButton";
+import MobileMenu from "../../components/layout/MobileMenuButton";
+import AllCategories from "../_components/all-categories";
+import MobileBottomNavigationBar from "../../components/layout/MobileBottomNavigationBar";
 
 export default function Categories() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);

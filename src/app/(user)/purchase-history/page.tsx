@@ -1,8 +1,8 @@
 "use client";
 import Link from "next/link";
 import { Home } from "lucide-react";
-import Header from "../components/layout/header";
-import FooterUser from "../components/ui/footer-user";
+import Header from "../../components/layout/header";
+import FooterUser from "../../components/ui/footer-user";
 
 // Sample purchase history data
 const invoices = [

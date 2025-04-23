@@ -4,14 +4,14 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
-import Header from "../layout/header";
-import MobileMenuButton from "../layout/MobileMenuButton";
-import MobileMenu from "../layout/MobileMenuButton";
-import MobileBottomNavigationBar from "../layout/MobileBottomNavigationBar";
-import FooterUser from "./footer-user";
-import AlphabetFilter from "./alphabet-filter";
-import StoreCard from "./store-card";
+import Header from "../../components/layout/header";
 import { stores, Stores } from "../../../lib/stores";
+import MobileMenuButton from "../../components/layout/MobileMenuButton";
+import MobileMenu from "../../components/layout/MobileMenuButton";
+import AlphabetFilter from "../_components/alphabet-filter";
+import StoreCard from "../_components/store-card";
+import FooterUser from "../../components/ui/footer-user";
+import MobileBottomNavigationBar from "../../components/layout/MobileBottomNavigationBar";
 
 // Define the Partner type
 interface Partner {

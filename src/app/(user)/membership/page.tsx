@@ -1,7 +1,7 @@
 "use client";
 
-import Membership from "../components/view/membership.page";
-import MembershipMobile from "../components/view/membership-mobview";
+import MembershipMobile from "../view/membership-mobview";
+import Membership from "../view/membership.page";
 
 export default function MembershipPage() {
   return (

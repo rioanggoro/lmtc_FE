@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import MainContent from "../../../components/ui/main-content";
+import MainContent from "../../_components/main-content";
 import CategoriesCarousel from "../../_components/categories-carousel";
 import Header from "../../../components/layout/header";
 import { Home, X } from "lucide-react";
