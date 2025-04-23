@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Ticket, dummyTickets } from "../../../../lib/support";
-import { Button } from "~/app/components/ui/button/";
+import { Button } from "../../../components/ui/button";
 
 export default function SupportForm() {
   const [any, setTickets] = useState<Ticket[]>(dummyTickets);
@@ -128,5 +128,5 @@ export default function SupportForm() {
 
       <Button type="submit">{editId ? "Update Ticket" : "Add Ticket"}</Button>
     </form>
-  );    
+  );
 }

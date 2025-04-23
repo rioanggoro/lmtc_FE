@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { partners as defaultPartners, Partner } from "../../../../lib/partners";
-import { Button } from "~/app/components/ui/button/";
+import { Button } from "../../../components/ui/button";
 
 export default function PopupsForm() {
   const [partners, setPartners] = useState<Partner[]>(defaultPartners);
