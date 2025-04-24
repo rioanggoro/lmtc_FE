@@ -5,6 +5,7 @@ import { Plus, Edit, Trash2, ChevronRight, ChevronDown } from "lucide-react";
 import { categories as initialCategories } from "../../../../lib/categories";
 import CategoryModal from "../layout/CategoryModal";
 import EditSubcategoryModal from "../layout/EditSubcategoryModal";
+import DeleteModal from "../layout/DeleteModal";
 
 interface Category {
   name: string;
@@ -12,6 +13,13 @@ interface Category {
 }
 
 export default function CategoriesPage() {
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [deleteTarget, setDeleteTarget] = useState<{
+    type: "category" | "subcategory";
+    name: string;
+    categoryName?: string;
+  } | null>(null);
+
   const [categories, setCategories] = useState<Category[]>(initialCategories);
   const [expandedCategories, setExpandedCategories] = useState<string[]>([]);
   const [showAddCategoryModal, setShowAddCategoryModal] = useState(false);
@@ -160,7 +168,10 @@ export default function CategoriesPage() {
                       <Edit className="h-4 w-4" />
                     </button>
                     <button
-                      onClick={() => handleDeleteCategory(cat.name)}
+                      onClick={() => {
+                        setDeleteTarget({ type: "category", name: cat.name });
+                        setShowDeleteModal(true); // ⬅️ Tambahkan ini
+                      }}
                       className="p-1 text-gray-500 hover:text-red-500"
                     >
                       <Trash2 className="h-4 w-4" />
@@ -188,9 +199,14 @@ export default function CategoriesPage() {
                             <Edit className="h-4 w-4" />
                           </button>
                           <button
-                            onClick={() =>
-                              handleDeleteSubcategory(cat.name, sub)
-                            }
+                            onClick={() => {
+                              setDeleteTarget({
+                                type: "subcategory",
+                                name: sub,
+                                categoryName: cat.name,
+                              });
+                              setShowDeleteModal(true); // ⬅️ Tambahkan ini
+                            }}
                             className="p-1 text-gray-500 hover:text-red-500"
                           >
                             <Trash2 className="h-4 w-4" />
@@ -236,7 +252,43 @@ export default function CategoriesPage() {
           onCancel={() => setShowEditSubcategoryModal(false)}
         />
       )}
-      
+
+      {showDeleteModal && deleteTarget && (
+        <DeleteModal
+          title={`Delete ${deleteTarget.type === "category" ? "Category" : "Subcategory"}`}
+          message={`Are you sure you want to delete "${deleteTarget.name}"?`}
+          onCancel={() => {
+            setShowDeleteModal(false);
+            setDeleteTarget(null);
+          }}
+          onConfirm={() => {
+            if (deleteTarget.type === "category") {
+              setCategories((prev) =>
+                prev.filter((cat) => cat.name !== deleteTarget.name),
+              );
+            } else if (
+              deleteTarget.type === "subcategory" &&
+              deleteTarget.categoryName
+            ) {
+              setCategories((prev) =>
+                prev.map((cat) =>
+                  cat.name === deleteTarget.categoryName
+                    ? {
+                        ...cat,
+                        subcategories: cat.subcategories.filter(
+                          (sub) => sub !== deleteTarget.name,
+                        ),
+                      }
+                    : cat,
+                ),
+              );
+            }
+
+            setShowDeleteModal(false);
+            setDeleteTarget(null);
+          }}
+        />
+      )}
     </div>
   );
 }
