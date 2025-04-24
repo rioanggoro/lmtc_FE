@@ -215,6 +215,37 @@ export default function CategoriesPage() {
           </ul>
         </div>
       </div>
+
+      {showAddCategoryModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+          <div className="w-full max-w-md rounded-lg bg-white p-6 shadow-xl">
+            <h3 className="mb-4 text-lg font-semibold text-gray-800">
+              Add New Category
+            </h3>
+            <input
+              type="text"
+              value={newCategoryName}
+              onChange={(e) => setNewCategoryName(e.target.value)}
+              className="w-full rounded-md border border-gray-300 p-2 focus:border-orange-500 focus:outline-none focus:ring-1 focus:ring-orange-500"
+              placeholder="Enter category name"
+            />
+            <div className="mt-4 flex justify-end space-x-2">
+              <button
+                onClick={() => setShowAddCategoryModal(false)}
+                className="rounded-md border border-gray-300 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={handleAddCategory}
+                className="rounded-md bg-orange-500 px-4 py-2 text-sm text-white hover:bg-orange-600"
+              >
+                Add
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
