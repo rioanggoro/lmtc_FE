@@ -17,6 +17,7 @@ export interface Partner {
   website?: string;
   hasMap?: string;
   url?: string;
+  states?: string;
 }
 
 export const partners: Partner[] = [
@@ -42,6 +43,7 @@ export const partners: Partner[] = [
     website: "https://shoegrab.com.au",
     hasMap: "/img/map.png",
     url: "https://shoegrab.com.au",
+    states: "West Java",
   },
   {
     id: 2,
@@ -55,6 +57,7 @@ export const partners: Partner[] = [
       "InCharge Automotive is a leading automotive repair shop in Melbourne, offering a range of services to help keep your vehicle in top condition.",
     tags: ["Automotive", "Repair", "Service"],
     url: "https://inchargeautomotive.com.au",
+    states: "Bali",
   },
   {
     id: 3,
@@ -66,6 +69,7 @@ export const partners: Partner[] = [
     promoCode: "HopkinsDEAL10",
     tags: ["Furniture", "Electronics", "Homeware"],
     url: "https://mydeal.com.au",
+    states: "East Jakarta",
   },
   {
     id: 4,
@@ -77,6 +81,7 @@ export const partners: Partner[] = [
     promoCode: "Hopkins4X4",
     tags: ["Automotive", "4x4", "Workshops"],
     url: "https://twd4x4.com.au",
+    states: "East Kalimantan",
   },
   {
     id: 5,
@@ -88,6 +93,7 @@ export const partners: Partner[] = [
     promoCode: "Hopkins4X4",
     tags: ["Automotive", "4x4", "Workshops"],
     url: "https://twd4x4.com.au",
+    states: "Papua",
   },
   {
     id: 5,
@@ -99,5 +105,6 @@ export const partners: Partner[] = [
     promoCode: "Hopkins4X4",
     tags: ["Automotive", "4x4", "Workshops"],
     url: "https://twd4x4.com.au",
+    states: "West Jakarta",
   },
 ];

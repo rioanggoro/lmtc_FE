@@ -3,19 +3,6 @@ import { useState } from "react";
 import { partners, type Partner } from "../../../lib/partners";
 
 export default function FilterPartners() {
-  const [expandedSections, setExpandedSections] = useState({
-    categories: true,
-    location: false,
-    discount: false,
-  });
-
-  const toggleSection = (section: keyof typeof expandedSections) => {
-    setExpandedSections({
-      ...expandedSections,
-      [section]: !expandedSections[section],
-    });
-  };
-
   return (
     <div className="rounded-lg border border-gray-200 bg-white p-4 shadow-sm">
       <h3 className="mb-4 text-lg font-semibold">Filters</h3>
@@ -24,9 +11,12 @@ export default function FilterPartners() {
       <div className="mb-6">
         <h3 className="text-lg font-semibold text-gray-800">States</h3>
         <select className="mt-2 w-full rounded border border-gray-300 p-2 focus:outline-none focus:ring-2 focus:ring-orange-400">
-          <option>Select State</option>
-          <option>AUS WIDE</option>
-          <option>ACT</option>
+          <option value="">Select State</option>
+          {partners.map((partner, index) => (
+            <option key={index} value={partner.states}>
+              {partner.states}
+            </option>
+          ))}
         </select>
       </div>
 
@@ -35,8 +25,11 @@ export default function FilterPartners() {
         <h3 className="text-lg font-semibold text-gray-800">Categories</h3>
         <select className="mt-2 w-full rounded border border-gray-300 p-2 focus:outline-none focus:ring-2 focus:ring-orange-400">
           <option>Select Category</option>
-          <option>Apparel</option>
-          <option>Automotive</option>
+          {partners.map((partner, index) => (
+            <option key={index} value={partner.states}>
+              {partner.category}
+            </option>
+          ))}
         </select>
       </div>
 
@@ -45,7 +38,11 @@ export default function FilterPartners() {
         <h3 className="text-lg font-semibold text-gray-800">Tags</h3>
         <select className="mt-2 w-full rounded border border-gray-300 p-2 focus:outline-none focus:ring-2 focus:ring-orange-400">
           <option>Select Tag</option>
-          {/* Tambahkan opsi lainnya sesuai kebutuhan */}
+          {partners.map((partner, index) => (
+            <option key={index} value={partner.states}>
+              {partner.tags}
+            </option>
+          ))}
         </select>
       </div>
       {/* Store Logos Section */}
