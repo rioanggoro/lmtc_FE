@@ -87,6 +87,7 @@ export default function PopupsForm() {
 
   // Unique categories
   const uniqueCategories = [...new Set(partners.map((p) => p.category))];
+  const uniqueStates = [...new Set(partners.map((p) => p.states))];
 
   return (
     <form
@@ -114,8 +115,22 @@ export default function PopupsForm() {
           className="w-full rounded border px-3 py-2 text-sm"
           required
         >
-          <option value="">Select Category</option>
+          <option value="">Category</option>
           {uniqueCategories.map((cat, index) => (
+            <option key={index} value={cat}>
+              {cat}
+            </option>
+          ))}
+        </select>
+        <select
+          name="states"
+          value={form.states ?? ""}
+          onChange={handleChange}
+          className="w-full rounded border px-3 py-2 text-sm"
+          required
+        >
+          <option value="">States</option>
+          {uniqueStates.map((cat, index) => (
             <option key={index} value={cat}>
               {cat}
             </option>
