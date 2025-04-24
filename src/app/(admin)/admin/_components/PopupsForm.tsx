@@ -42,7 +42,6 @@ export default function PopupsForm() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-
     if (!form.name || !form.category) return;
 
     if (editId !== null) {
@@ -64,7 +63,6 @@ export default function PopupsForm() {
       setPartners((prev) => [...prev, newPartner]);
     }
 
-    // Reset
     setEditId(null);
     setForm({
       name: "",
@@ -87,6 +85,9 @@ export default function PopupsForm() {
     });
   };
 
+  // Unique categories
+  const uniqueCategories = [...new Set(partners.map((p) => p.category))];
+
   return (
     <form
       onSubmit={handleSubmit}
@@ -96,51 +97,128 @@ export default function PopupsForm() {
         {editId ? "Edit Partner Pop-up" : "Add New Partner Pop-up"}
       </h2>
 
-      {/* Input fields */}
-      <input
-        name="name"
-        placeholder="Name"
-        value={form.name ?? ""}
-        onChange={handleChange}
-        className="w-full rounded border px-3 py-2 text-sm"
-        required
-      />
-      <input
-        name="category"
-        placeholder="Category"
-        value={form.category ?? ""}
-        onChange={handleChange}
-        className="w-full rounded border px-3 py-2 text-sm"
-        required
-      />
-      <input
-        name="logo"
-        placeholder="Logo URL"
-        value={form.logo ?? ""}
-        onChange={handleChange}
-        className="w-full rounded border px-3 py-2 text-sm"
-      />
-      <input
-        name="discount"
-        placeholder="Discount"
-        value={form.discount ?? ""}
-        onChange={handleChange}
-        className="w-full rounded border px-3 py-2 text-sm"
-      />
-      <input
-        name="discountText"
-        placeholder="Discount Text"
-        value={form.discountText ?? ""}
-        onChange={handleChange}
-        className="w-full rounded border px-3 py-2 text-sm"
-      />
-      <input
-        name="promoCode"
-        placeholder="Promo Code"
-        value={form.promoCode ?? ""}
-        onChange={handleChange}
-        className="w-full rounded border px-3 py-2 text-sm"
-      />
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+        <input
+          name="name"
+          placeholder="Name"
+          value={form.name ?? ""}
+          onChange={handleChange}
+          className="w-full rounded border px-3 py-2 text-sm"
+          required
+        />
+
+        <select
+          name="category"
+          value={form.category ?? ""}
+          onChange={handleChange}
+          className="w-full rounded border px-3 py-2 text-sm"
+          required
+        >
+          <option value="">Select Category</option>
+          {uniqueCategories.map((cat, index) => (
+            <option key={index} value={cat}>
+              {cat}
+            </option>
+          ))}
+        </select>
+
+        <input
+          name="logo"
+          placeholder="Logo URL"
+          value={form.logo ?? ""}
+          onChange={handleChange}
+          className="w-full rounded border px-3 py-2 text-sm"
+        />
+
+        <input
+          name="discount"
+          placeholder="Discount"
+          value={form.discount ?? ""}
+          onChange={handleChange}
+          className="w-full rounded border px-3 py-2 text-sm"
+        />
+
+        <input
+          name="discountText"
+          placeholder="Discount Text"
+          value={form.discountText ?? ""}
+          onChange={handleChange}
+          className="w-full rounded border px-3 py-2 text-sm"
+        />
+
+        <input
+          name="promoCode"
+          placeholder="Promo Code"
+          value={form.promoCode ?? ""}
+          onChange={handleChange}
+          className="w-full rounded border px-3 py-2 text-sm"
+        />
+
+        <input
+          name="storeAddress"
+          placeholder="Store Address"
+          value={form.storeAddress ?? ""}
+          onChange={handleChange}
+          className="w-full rounded border px-3 py-2 text-sm"
+        />
+
+        <input
+          name="email"
+          placeholder="Email"
+          value={form.email ?? ""}
+          onChange={handleChange}
+          className="w-full rounded border px-3 py-2 text-sm"
+        />
+
+        <input
+          name="phone"
+          placeholder="Phone"
+          value={form.phone ?? ""}
+          onChange={handleChange}
+          className="w-full rounded border px-3 py-2 text-sm"
+        />
+
+        <input
+          name="facebook"
+          placeholder="Facebook URL"
+          value={form.facebook ?? ""}
+          onChange={handleChange}
+          className="w-full rounded border px-3 py-2 text-sm"
+        />
+
+        <input
+          name="instagram"
+          placeholder="Instagram URL"
+          value={form.instagram ?? ""}
+          onChange={handleChange}
+          className="w-full rounded border px-3 py-2 text-sm"
+        />
+
+        <input
+          name="website"
+          placeholder="Website URL"
+          value={form.website ?? ""}
+          onChange={handleChange}
+          className="w-full rounded border px-3 py-2 text-sm"
+        />
+
+        <input
+          name="hasMap"
+          placeholder="Map Image URL or Embed"
+          value={form.hasMap ?? ""}
+          onChange={handleChange}
+          className="w-full rounded border px-3 py-2 text-sm"
+        />
+
+        <input
+          name="url"
+          placeholder="Official Website Link"
+          value={form.url ?? ""}
+          onChange={handleChange}
+          className="w-full rounded border px-3 py-2 text-sm"
+        />
+      </div>
+
       <textarea
         name="description"
         placeholder="Description"
@@ -148,77 +226,22 @@ export default function PopupsForm() {
         onChange={handleChange}
         className="w-full rounded border px-3 py-2 text-sm"
       />
+
       <input
         name="tags"
         placeholder="Tags (comma separated)"
         onChange={handleTagsChange}
         className="w-full rounded border px-3 py-2 text-sm"
       />
-      <input
-        name="storeAddress"
-        placeholder="Store Address"
-        value={form.storeAddress ?? ""}
-        onChange={handleChange}
-        className="w-full rounded border px-3 py-2 text-sm"
-      />
-      <input
-        name="email"
-        placeholder="Email"
-        value={form.email ?? ""}
-        onChange={handleChange}
-        className="w-full rounded border px-3 py-2 text-sm"
-      />
-      <input
-        name="phone"
-        placeholder="Phone"
-        value={form.phone ?? ""}
-        onChange={handleChange}
-        className="w-full rounded border px-3 py-2 text-sm"
-      />
-      <input
-        name="facebook"
-        placeholder="Facebook URL"
-        value={form.facebook ?? ""}
-        onChange={handleChange}
-        className="w-full rounded border px-3 py-2 text-sm"
-      />
-      <input
-        name="instagram"
-        placeholder="Instagram URL"
-        value={form.instagram ?? ""}
-        onChange={handleChange}
-        className="w-full rounded border px-3 py-2 text-sm"
-      />
-      <input
-        name="website"
-        placeholder="Website URL"
-        value={form.website ?? ""}
-        onChange={handleChange}
-        className="w-full rounded border px-3 py-2 text-sm"
-      />
-      <input
-        name="hasMap"
-        placeholder="Map Image URL or Embed"
-        value={form.hasMap ?? ""}
-        onChange={handleChange}
-        className="w-full rounded border px-3 py-2 text-sm"
-      />
-      <input
-        name="url"
-        placeholder="Official Website Link"
-        value={form.url ?? ""}
-        onChange={handleChange}
-        className="w-full rounded border px-3 py-2 text-sm"
-      />
 
-      <div className="flex gap-4">
-        <label className="flex items-center gap-2 text-sm">
-          <input
-            type="checkbox"
-            name="isPopular"
-            checked={form.isPopular ?? false}
-            onChange={handleChange}
-          />{" "}
+      <div className="flex items-center gap-2">
+        <input
+          type="checkbox"
+          name="isPopular"
+          checked={form.isPopular ?? false}
+          onChange={handleChange}
+        />
+        <label htmlFor="isPopular" className="text-sm text-gray-700">
           Popular Partner
         </label>
       </div>
