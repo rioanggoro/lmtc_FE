@@ -6,6 +6,7 @@ import { categories as initialCategories } from "../../../../lib/categories";
 import CategoryModal from "../layout/CategoryModal";
 import EditSubcategoryModal from "../layout/EditSubcategoryModal";
 import DeleteModal from "../layout/DeleteModal";
+import AddSubcategoryModal from "../layout/AddSubcategoryModal";
 
 interface Category {
   name: string;
@@ -100,6 +101,32 @@ export default function CategoriesPage() {
       );
       setCategories(updated);
     }
+  };
+
+  const handleAddSubcategory = () => {
+    if (
+      !newSubcategoryName.trim() ||
+      !selectedCategory ||
+      categories.find(
+        (cat) =>
+          cat.name === selectedCategory.name &&
+          cat.subcategories.includes(newSubcategoryName),
+      )
+    )
+      return;
+
+    const updated = categories.map((cat) =>
+      cat.name === selectedCategory.name
+        ? {
+            ...cat,
+            subcategories: [...cat.subcategories, newSubcategoryName],
+          }
+        : cat,
+    );
+
+    setCategories(updated);
+    setNewSubcategoryName("");
+    setShowAddSubcategoryModal(false);
   };
 
   return (
@@ -287,6 +314,16 @@ export default function CategoriesPage() {
             setShowDeleteModal(false);
             setDeleteTarget(null);
           }}
+        />
+      )}
+      {showAddSubcategoryModal && selectedCategory && (
+        <AddSubcategoryModal
+          title="Add New Subcategory"
+          value={newSubcategoryName}
+          onChange={(e) => setNewSubcategoryName(e.target.value)}
+          onCancel={() => setShowAddSubcategoryModal(false)}
+          onSubmit={handleAddSubcategory} // ← Tanpa parameter
+          confirmText="Add"
         />
       )}
     </div>
