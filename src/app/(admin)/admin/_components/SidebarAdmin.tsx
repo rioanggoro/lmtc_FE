@@ -56,7 +56,7 @@ export default function Sidebar({
       href: "/admin/giveaways",
       icon: <Gift className="h-5 w-5" />,
     },
-        {
+    {
       name: "Major Draw Winners",
       href: "/admin/major-draw-winners",
       icon: <Trophy className="h-5 w-5" />,
@@ -66,7 +66,6 @@ export default function Sidebar({
       href: "/admin/support",
       icon: <TicketCheck className="h-5 w-5" />,
     },
-
   ];
 
   return (
