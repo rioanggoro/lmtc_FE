@@ -9,73 +9,7 @@ import MobileMenu from "../../components/layout/MobileMenuButton";
 import GiveawayCard from "../_components/giveaway-card";
 import MobileBottomNavigationBar from "src/app/components/layout/MobileBottomNavigationBar";
 import FooterUser from "../../components/ui/footer-user";
-
-const giveaways = [
-  {
-    id: "100k-cash",
-    title: "$100K CASH",
-    image: "/logos/bestdeals.jpg",
-    status: "Closed" as const,
-    dateText: "Sunday the 13th of April at 8:30PM AEST",
-    tbd: true,
-  },
-  {
-    id: "shelby-f150",
-    title: "Shelby F150",
-    image: "/logos/bestdeals.jpg",
-    status: "Early Bird" as const,
-    dateText: "Thursday the 17th of April at 8:30PM AEST",
-    tbd: true,
-  },
-  {
-    id: "r35-gtr",
-    title: "R35 GTR",
-    image: "/logos/bestdeals.jpg",
-    status: "Early Bird" as const,
-    dateText: "Thursday the 24th of April at 8:30PM AEST",
-    tbd: true,
-  },
-  {
-    id: "quintrex",
-    title: "Quintrex",
-    image: "/logos/bestdeals.jpg",
-    status: "Early Bird" as const,
-    dateText: "Monday the 14th of April at 8:30 PM AEST",
-    tbd: true,
-  },
-  {
-    id: "monaro-gts",
-    title: "Monaro GTS",
-    image: "/logos/bestdeals.jpg",
-    status: "Early Bird" as const,
-    dateText: "Sunday 4th of May at 4:00PM AEST",
-    tbd: true,
-  },
-  {
-    id: "hsv-gts",
-    title: "HSV GTS",
-    image: "/logos/bestdeals.jpg",
-    status: "Live" as const,
-    dateText: "Tuesday the 29th of April at 8:30PM AEDT",
-    tbd: true,
-  },
-  {
-    id: "1-million-cash",
-    title: "$1,000,000 Cash",
-    image: "/logos/bestdeals.jpg",
-    status: "Early Bird" as const,
-    dateText: "Wednesday the 30th of April at 8:30PM AEDT",
-    tbd: true,
-  },
-  {
-    id: "porsche-taycan",
-    title: "Porsche Taycan Turbo",
-    image: "/logos/bestdeals.jpg",
-    status: "Not Yet Open" as const,
-    dateText: "TBD",
-    tbd: true,
-  },
-];
+import { giveaways } from "../../../lib/giveaway";
 
 export default function GiveawaysPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
