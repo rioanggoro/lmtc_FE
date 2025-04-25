@@ -13,6 +13,7 @@ import {
   X,
   LogOut,
   Trophy,
+  FileText,
 } from "lucide-react";
 
 interface SidebarProps {
@@ -60,6 +61,11 @@ export default function Sidebar({
       name: "Major Draw Winners",
       href: "/admin/major-draw-winners",
       icon: <Trophy className="h-5 w-5" />,
+    },
+    {
+      name: "User Entries",
+      href: "/admin/user-entries",
+      icon: <FileText className="h-5 w-5" />,
     },
     {
       name: "Support Tickets",
