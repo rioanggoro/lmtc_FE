@@ -77,6 +77,7 @@ export default function MajorDrawWinnersAdminPage() {
           value={form.title}
           onChange={handleFormChange}
           className="w-full border px-3 py-2"
+          required
         />
         <input
           name="date"
@@ -84,6 +85,7 @@ export default function MajorDrawWinnersAdminPage() {
           value={form.date}
           onChange={handleFormChange}
           className="w-full border px-3 py-2"
+          required
         />
         <input
           name="image"
@@ -91,6 +93,7 @@ export default function MajorDrawWinnersAdminPage() {
           value={form.image}
           onChange={handleFormChange}
           className="w-full border px-3 py-2"
+          required
         />
 
         {/* Winner Prizes */}
@@ -103,6 +106,7 @@ export default function MajorDrawWinnersAdminPage() {
               value={newPrize.label}
               onChange={handlePrizeChange}
               className="flex-1 border px-3 py-2"
+              required
             />
             <input
               name="prize"
@@ -110,6 +114,7 @@ export default function MajorDrawWinnersAdminPage() {
               value={newPrize.prize}
               onChange={handlePrizeChange}
               className="flex-1 border px-3 py-2"
+              required
             />
             <button
               type="button"

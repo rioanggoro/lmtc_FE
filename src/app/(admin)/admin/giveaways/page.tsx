@@ -67,6 +67,7 @@ export default function AdminGiveawaysPage() {
           value={form.title}
           onChange={handleChange}
           className="w-full border px-3 py-2"
+          required
         />
         <input
           name="image"
@@ -74,6 +75,7 @@ export default function AdminGiveawaysPage() {
           value={form.image}
           onChange={handleChange}
           className="w-full border px-3 py-2"
+          required
         />
         <select
           name="status"
