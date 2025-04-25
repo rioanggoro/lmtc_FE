@@ -12,6 +12,7 @@ import {
   ChevronDown,
   X,
   LogOut,
+  Trophy,
 } from "lucide-react";
 
 interface SidebarProps {
@@ -55,11 +56,17 @@ export default function Sidebar({
       href: "/admin/giveaways",
       icon: <Gift className="h-5 w-5" />,
     },
+        {
+      name: "Major Draw Winners",
+      href: "/admin/major-draw-winners",
+      icon: <Trophy className="h-5 w-5" />,
+    },
     {
       name: "Support Tickets",
       href: "/admin/support",
       icon: <TicketCheck className="h-5 w-5" />,
     },
+
   ];
 
   return (

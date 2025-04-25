@@ -60,6 +60,7 @@ export default function GiveawaysPage() {
               status={giveaway.status}
               dateText={giveaway.dateText}
               tbd={giveaway.tbd}
+              url={giveaway.url ?? ""} // <- pastikan dikirim
             />
           ))}
         </div>

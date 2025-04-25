@@ -7,6 +7,7 @@ export interface Giveaway {
   status: GiveawayStatus;
   dateText: string;
   tbd: boolean;
+  url?: string;
 }
 
 export let giveaways: Giveaway[] = [
@@ -17,6 +18,7 @@ export let giveaways: Giveaway[] = [
     status: "Closed",
     dateText: "Sunday the 13th of April at 8:30PM AEST",
     tbd: true,
+    url: "https://www.tokopedia.com/",
   },
   {
     id: "shelby-f150",
@@ -25,6 +27,7 @@ export let giveaways: Giveaway[] = [
     status: "Early Bird",
     dateText: "Thursday the 17th of April at 8:30PM AEST",
     tbd: true,
+    url: "https://www.tokopedia.com/",
   },
   {
     id: "r35-gtr",
@@ -33,6 +36,7 @@ export let giveaways: Giveaway[] = [
     status: "Early Bird",
     dateText: "Thursday the 24th of April at 8:30PM AEST",
     tbd: true,
+    url: "https://www.tokopedia.com/",
   },
   {
     id: "quintrex",
@@ -41,6 +45,7 @@ export let giveaways: Giveaway[] = [
     status: "Early Bird",
     dateText: "Monday the 14th of April at 8:30 PM AEST",
     tbd: true,
+    url: "https://www.tokopedia.com/",
   },
   {
     id: "monaro-gts",
@@ -49,6 +54,7 @@ export let giveaways: Giveaway[] = [
     status: "Early Bird",
     dateText: "Sunday 4th of May at 4:00PM AEST",
     tbd: true,
+    url: "https://www.tokopedia.com/",
   },
   {
     id: "hsv-gts",
@@ -57,6 +63,7 @@ export let giveaways: Giveaway[] = [
     status: "Live",
     dateText: "Tuesday the 29th of April at 8:30PM AEDT",
     tbd: true,
+    url: "https://www.tokopedia.com/",
   },
   {
     id: "1-million-cash",
@@ -65,6 +72,7 @@ export let giveaways: Giveaway[] = [
     status: "Early Bird",
     dateText: "Wednesday the 30th of April at 8:30PM AEDT",
     tbd: true,
+    url: "https://www.tokopedia.com/",
   },
   {
     id: "porsche-taycan",
@@ -73,6 +81,7 @@ export let giveaways: Giveaway[] = [
     status: "Not Yet Open",
     dateText: "TBD",
     tbd: true,
+    
   },
 ];
 
