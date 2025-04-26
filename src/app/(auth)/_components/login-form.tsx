@@ -23,7 +23,7 @@ export default function LoginForm() {
     // Simulasi login sederhana
     if (email === "user@user.com" && password === "user123") {
       router.push("/user"); // Halaman user
-    } else if (email === "admin@admin.com" && password === "admi123") {
+    } else if (email === "admin@admin.com" && password === "  ") {
       router.push("/admin"); // Halaman admin
     } else {
       setError("Invalid email or password");
