@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Edit, Trash2 } from "lucide-react";
-import { Banner } from "../../../../lib/banners";                   
+import { Banner } from "../../../../lib/banners";
 
 interface BannerListProps {
   banners: Banner[];
@@ -62,7 +62,6 @@ export default function BannerList({
                 </div>
                 <div className="mb-4 text-sm text-gray-500">
                   <p>Page: {banner.page}</p>
-                  <p>Position: {banner.position}</p>
                 </div>
                 <div className="flex justify-between">
                   <div className="flex space-x-2">
@@ -74,7 +73,6 @@ export default function BannerList({
                           image: banner.image,
                           page: banner.page,
                           active: banner.active,
-                          position: banner.position,
                         });
                         setShowEditBannerModal(true);
                       }}

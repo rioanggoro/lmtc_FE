@@ -65,33 +65,10 @@ export default function BannerForm({
             onChange={(e) => setBanner({ ...banner, page: e.target.value })}
             className="w-full rounded-md border border-gray-300 p-2"
           >
-            <option value="Home">Home</option>
-            <option value="Giveaways">Giveaways</option>
-            <option value="Discounts">Discounts</option>
-            <option value="Profile">Profile</option>
+            <option value="Dashboard">Dashboard</option>
+            <option value="Memberhip">Memberhip</option>
           </select>
         </div>
-
-        <div>
-          <label className="mb-1 block text-sm font-medium text-gray-700">
-            Position
-          </label>
-          <select
-            value={banner.position}
-            onChange={(e) =>
-              setBanner({
-                ...banner,
-                position: e.target.value as Banner["position"],
-              })
-            }
-            className="w-full rounded-md border border-gray-300 p-2"
-          >
-            <option value="Top">Top</option>
-            <option value="Middle">Middle</option>
-            <option value="Bottom">Bottom</option>
-          </select>
-        </div>
-
         <div className="flex items-center">
           <input
             type="checkbox"

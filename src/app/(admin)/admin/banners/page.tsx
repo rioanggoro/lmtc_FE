@@ -16,7 +16,6 @@ export default function BannersPage() {
     image: "",
     page: "Home",
     active: true,
-    position: "Top",
   });
 
   const handleAddBanner = () => {
@@ -64,7 +63,6 @@ export default function BannersPage() {
       image: "",
       page: "Home",
       active: true,
-      position: "Top",
     });
     setSelectedBanner(null);
   };
@@ -91,7 +89,6 @@ export default function BannersPage() {
             image: banner.image,
             page: banner.page,
             active: banner.active,
-            position: banner.position,
           });
           setShowEditBannerModal(true);
         }}
