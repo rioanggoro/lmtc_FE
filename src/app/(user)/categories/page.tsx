@@ -37,7 +37,7 @@ export default function Categories() {
       try {
         const res = await fetch(process.env.NEXT_PUBLIC_API_CATEGORY_URL!);
         const result = await res.json();
-        setCategories(result.data);
+        setCategories(result);
       } catch (error) {
         console.error("Failed to fetch categories", error);
       } finally {
